@@ -53,25 +53,23 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <Hero />
-      <About />
-      <EducationTimeline />
-      <Specialties />
-      <Procedures />
-      <Testimonials />
-      <Media />
-      <Location />
-    </>
-  );
-}
-
-// Mount the chrome (header, footer, floating CTAs) once for this single-page site.
-// Using a tiny wrapper component keeps __root.tsx untouched for SSR shell duties.
-export function PageShell({ children }: { children: React.ReactNode }) {
-  return (
-    <>
+      <a
+        href="#conteudo"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+      >
+        Pular para o conteúdo
+      </a>
       <Header />
-      <main id="conteudo">{children}</main>
+      <main id="conteudo">
+        <Hero />
+        <About />
+        <EducationTimeline />
+        <Specialties />
+        <Procedures />
+        <Testimonials />
+        <Media />
+        <Location />
+      </main>
       <Footer />
       <FloatingWhatsApp />
       <BackToTop />
