@@ -1,0 +1,204 @@
+import logoIbv from "@/assets/logo-ibv.svg";
+import logoDaniel from "@/assets/logo-daniel.svg";
+import danielHero from "@/assets/daniel-hero.jpg";
+import danielBw from "@/assets/daniel-bw.jpg";
+import danielSitting from "@/assets/daniel-sitting.jpg";
+import danielSurgery1 from "@/assets/daniel-surgery-1.jpg";
+import danielSurgery2 from "@/assets/daniel-surgery-2.jpg";
+import specGlaucoma from "@/assets/specialty-glaucoma.jpg";
+import specCatarata from "@/assets/specialty-catarata.jpg";
+import specNeuro from "@/assets/specialty-neuro.jpg";
+import specRefrativa from "@/assets/specialty-refrativa.jpg";
+import clinicInterior from "@/assets/clinic-interior.jpg";
+
+export const ASSETS = {
+  logoIbv,
+  logoDaniel,
+  danielHero,
+  danielBw,
+  danielSitting,
+  danielSurgery1,
+  danielSurgery2,
+  specGlaucoma,
+  specCatarata,
+  specNeuro,
+  specRefrativa,
+  clinicInterior,
+};
+
+export const CONTACT = {
+  whatsappNumber: "559833015060",
+  whatsappText: "Olá, Dr. Daniel! Gostaria de agendar uma consulta.",
+  institutoUrl: "https://institutobelavista.com/",
+  instagramUrl: "https://www.instagram.com/ibv.institutobelavista/",
+};
+
+export const waLink = (text?: string) =>
+  `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
+    text ?? CONTACT.whatsappText,
+  )}`;
+
+export const DOCTOR = {
+  name: "Dr. Daniel Costa Campos",
+  shortName: "Dr. Daniel",
+  crm: "CRM-MA 0000",
+  rqe: "RQE 0000",
+  photoHero: danielHero,
+  photoBw: danielBw,
+  photoSitting: danielSitting,
+  bioParagraphs: [
+    "Médico oftalmologista formado pela Universidade Federal do Maranhão, com residência médica no Hospital Universitário (HU-UFMA) e título de Especialista em Oftalmologia pelo Conselho Brasileiro de Oftalmologia (CBO).",
+    "Pós-graduado em Glaucoma pela Universidade Federal de São Paulo (Unifesp) e mestre pelo Programa de Pós-Graduação em Saúde do Adulto da UFMA, atua como preceptor da residência médica em Oftalmologia do HU-UFMA desde 2015.",
+    "Sócio-proprietário do Instituto Bela Vista de Oftalmologia, alia ciência, tecnologia de ponta e escuta atenta para oferecer um cuidado verdadeiramente humano a cada paciente.",
+  ],
+  mission:
+    "Cuidar da sua visão com tempo, ciência e empatia — para que enxergar o mundo continue sendo uma das suas melhores experiências.",
+  medicalBoard: "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
+};
+
+export interface Education {
+  id: string;
+  year: string;
+  title: string;
+  institution: string;
+}
+
+export const EDUCATION: Education[] = [
+  { id: "e1", year: "2010", title: "Graduação em Medicina", institution: "Universidade Federal do Maranhão (UFMA)" },
+  { id: "e2", year: "2015", title: "Residência Médica em Oftalmologia", institution: "Hospital Universitário HU-UFMA" },
+  { id: "e3", year: "2015", title: "Título de Especialista em Oftalmologia", institution: "Conselho Brasileiro de Oftalmologia (CBO)" },
+  { id: "e4", year: "2016", title: "Pós-graduação em Glaucoma", institution: "Universidade Federal de São Paulo (Unifesp)" },
+  { id: "e5", year: "2024", title: "Mestrado em Saúde do Adulto", institution: "Programa de Pós-Graduação UFMA" },
+  { id: "e6", year: "Desde 2015", title: "Preceptor da Residência em Oftalmologia", institution: "HU-UFMA" },
+];
+
+export interface Specialty {
+  id: string;
+  title: string;
+  icon: "eye" | "scan" | "brain" | "focus";
+  image: string;
+  imageAlt: string;
+  description: string;
+  expanded: string;
+  procedures: string[];
+}
+
+export const SPECIALTIES: Specialty[] = [
+  {
+    id: "glaucoma",
+    title: "Glaucoma",
+    icon: "scan",
+    image: specGlaucoma,
+    imageAlt: "Detalhe macro de um olho humano para acompanhamento de glaucoma",
+    description:
+      "Diagnóstico precoce e acompanhamento contínuo da pressão intraocular, preservando o nervo óptico e a sua visão a longo prazo.",
+    expanded:
+      "O glaucoma é silencioso e, sem tratamento, pode levar à perda irreversível da visão. Com pós-graduação em Glaucoma pela Unifesp, o Dr. Daniel realiza avaliação completa do nervo óptico, campimetria e OCT, definindo o plano terapêutico clínico ou cirúrgico ideal para cada caso.",
+    procedures: ["Tonometria de aplanação", "Campo visual computadorizado", "OCT de nervo óptico", "Trabeculectomia", "Implante de drenagem"],
+  },
+  {
+    id: "catarata",
+    title: "Catarata",
+    icon: "eye",
+    image: specCatarata,
+    imageAlt: "Lente intraocular usada em cirurgia de catarata",
+    description:
+      "Cirurgia moderna e segura com facoemulsificação e lentes intraoculares premium, devolvendo nitidez ao seu olhar.",
+    expanded:
+      "A cirurgia de catarata é um dos procedimentos mais realizados no mundo. Utilizando facoemulsificação por ultrassom e lentes monofocais, tóricas ou multifocais, o objetivo é restaurar uma visão clara e, sempre que possível, reduzir a dependência de óculos.",
+    procedures: ["Facoemulsificação", "Implante de LIO monofocal", "Implante de LIO tórica", "Implante de LIO multifocal/EDOF"],
+  },
+  {
+    id: "neuro",
+    title: "Neuro-oftalmologia",
+    icon: "brain",
+    image: specNeuro,
+    imageAlt: "Ilustração de conexões neurais entre olho e cérebro",
+    description:
+      "Investigação especializada das alterações visuais relacionadas ao nervo óptico, vias visuais e sistema nervoso central.",
+    expanded:
+      "Sintomas como visão dupla, perda súbita de visão, alterações de campo visual ou dores de cabeça associadas à visão exigem investigação detalhada. A neuro-oftalmologia integra exame clínico, exames de imagem e avaliação funcional para identificar e tratar a causa correta.",
+    procedures: ["Avaliação do nervo óptico", "Estudo de motilidade ocular", "Campimetria computadorizada", "Acompanhamento conjunto com neurologia"],
+  },
+  {
+    id: "refrativa",
+    title: "Cirurgia Refrativa",
+    icon: "focus",
+    image: specRefrativa,
+    imageAlt: "Sala de cirurgia refrativa equipada com tecnologia a laser",
+    description:
+      "Liberdade dos óculos com técnicas a laser modernas para miopia, hipermetropia e astigmatismo.",
+    expanded:
+      "Após avaliação minuciosa da córnea, refração e biometria, o Dr. Daniel indica a técnica mais segura para o seu caso — LASIK, PRK ou implante de lente fácica — explicando expectativas, riscos e benefícios com transparência.",
+    procedures: ["Avaliação refracional completa", "LASIK", "PRK", "Implante de lente fácica (ICL)"],
+  },
+];
+
+export interface Procedure {
+  id: string;
+  technicalName: string;
+  popularName: string;
+  description: string;
+}
+
+export const PROCEDURES: Procedure[] = [
+  { id: "p1", technicalName: "Facoemulsificação", popularName: "Cirurgia de catarata", description: "Remoção do cristalino opacificado por ultrassom e implante de lente intraocular." },
+  { id: "p2", technicalName: "LASIK / PRK", popularName: "Cirurgia para tirar os óculos", description: "Correção de grau (miopia, hipermetropia e astigmatismo) com laser excimer." },
+  { id: "p3", technicalName: "Trabeculectomia", popularName: "Cirurgia de glaucoma", description: "Criação de uma nova via de drenagem para reduzir a pressão intraocular." },
+  { id: "p4", technicalName: "Implante de drenagem (tubo)", popularName: "Válvula para glaucoma", description: "Indicado em glaucomas avançados ou refratários ao tratamento clínico." },
+  { id: "p5", technicalName: "Implante de LIO premium", popularName: "Lente multifocal ou tórica", description: "Lentes que corrigem grau e/ou ampliam o foco para perto, intermediário e longe." },
+  { id: "p6", technicalName: "Aplicação de toxina botulínica", popularName: "Botox terapêutico ocular", description: "Tratamento de blefaroespasmo, espasmo hemifacial e indicações funcionais." },
+];
+
+export interface Testimonial {
+  id: string;
+  patientName: string;
+  city: string;
+  state: string;
+  rating: number;
+  text: string;
+}
+
+export const TESTIMONIALS: Testimonial[] = [
+  { id: "t1", patientName: "Maria Helena S.", city: "São Luís", state: "MA", rating: 5, text: "Dr. Daniel é extremamente atencioso. Explicou tudo sobre a cirurgia de catarata da minha mãe e o pós-operatório foi tranquilo. Hoje ela enxerga como há 30 anos." },
+  { id: "t2", patientName: "Ricardo M.", city: "São Luís", state: "MA", rating: 5, text: "Fiz a cirurgia refrativa e voltei a dirigir sem óculos no dia seguinte. Equipe acolhedora, tecnologia impecável." },
+  { id: "t3", patientName: "Antônia P.", city: "São José de Ribamar", state: "MA", rating: 5, text: "Convivo com glaucoma há anos. Pela primeira vez senti que um médico realmente me escutou e ajustou o tratamento ao meu dia a dia." },
+  { id: "t4", patientName: "João Carlos L.", city: "Paço do Lumiar", state: "MA", rating: 5, text: "Atendimento humano e técnico ao mesmo tempo. Indico de olhos fechados — ou melhor, bem abertos!" },
+];
+
+export interface Location {
+  id: string;
+  name: string;
+  address: string;
+  phone: string;
+  hours: string;
+  mapEmbed: string;
+}
+
+export const LOCATIONS: Location[] = [
+  {
+    id: "ibv",
+    name: "Instituto Bela Vista de Oftalmologia",
+    address: "Av. dos Holandeses, São Luís — MA",
+    phone: "(98) 3301-5060",
+    hours: "Seg a Sex: 08h às 18h • Sáb: 08h às 12h",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.0264786586554!2d-44.24283642550851!3d-2.4981618381505357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f6935d0ae186ad%3A0xaa7589d4bba04063!2sINSTITUTO%20BELA%20VISTA%20DE%20OFTALMOLOGIA!5e0!3m2!1spt-BR!2sbr!4v1779032339726!5m2!1spt-BR!2sbr",
+  },
+];
+
+export const GALLERY = [
+  { id: "g1", url: danielSurgery1, alt: "Dr. Daniel Campos em microcirurgia oftalmológica" },
+  { id: "g2", url: danielSurgery2, alt: "Dr. Daniel Campos utilizando microscópio cirúrgico" },
+  { id: "g3", url: clinicInterior, alt: "Interior do consultório do Instituto Bela Vista" },
+  { id: "g4", url: danielSitting, alt: "Retrato profissional do Dr. Daniel Campos" },
+];
+
+export const NAV_LINKS = [
+  { href: "#sobre", label: "Sobre" },
+  { href: "#formacao", label: "Formação" },
+  { href: "#especialidades", label: "Áreas" },
+  { href: "#procedimentos", label: "Procedimentos" },
+  { href: "#depoimentos", label: "Depoimentos" },
+  { href: "#localizacao", label: "Localização" },
+];
