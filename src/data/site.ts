@@ -56,21 +56,6 @@ export const DOCTOR = {
   medicalBoard: "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
 };
 
-export interface Education {
-  id: string;
-  year: string;
-  title: string;
-  institution: string;
-}
-
-export const EDUCATION: Education[] = [
-  { id: "e1", year: "2010", title: "Graduação em Medicina", institution: "Universidade Federal do Maranhão (UFMA)" },
-  { id: "e2", year: "2015", title: "Residência Médica em Oftalmologia", institution: "Hospital Universitário HU-UFMA" },
-  { id: "e3", year: "2015", title: "Título de Especialista em Oftalmologia", institution: "Conselho Brasileiro de Oftalmologia (CBO)" },
-  { id: "e4", year: "2016", title: "Pós-graduação em Glaucoma", institution: "Universidade Federal de São Paulo (Unifesp)" },
-  { id: "e5", year: "2024", title: "Mestrado em Saúde do Adulto", institution: "Programa de Pós-Graduação UFMA" },
-  { id: "e6", year: "Desde 2015", title: "Preceptor da Residência em Oftalmologia", institution: "HU-UFMA" },
-];
 
 export interface Specialty {
   id: string;
@@ -196,7 +181,6 @@ export const GALLERY = [
 
 export const NAV_LINKS = [
   { href: "#sobre", label: "Sobre" },
-  { href: "#formacao", label: "Formação" },
   { href: "#especialidades", label: "Áreas" },
   { href: "#procedimentos", label: "Procedimentos" },
   { href: "#depoimentos", label: "Depoimentos" },
