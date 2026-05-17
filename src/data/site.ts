@@ -41,8 +41,8 @@ export const waLink = (text?: string) =>
 export const DOCTOR = {
   name: "Dr. Daniel Costa Campos",
   shortName: "Dr. Daniel",
-  crm: "CRM-MA 0000",
-  rqe: "RQE 0000",
+  crm: "CRM-MA 6135",
+  rqe: "RQE 2746",
   photoHero: danielHero,
   photoBw: danielBw,
   photoSitting: danielSitting,
