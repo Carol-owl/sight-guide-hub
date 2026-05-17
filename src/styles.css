@@ -204,3 +204,75 @@ html {
 .snap-x-carousel > * {
   scroll-snap-align: start;
 }
+
+/* ============== Glassmorphism ============== */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-bg-strong: rgba(255, 255, 255, 0.22);
+  --glass-border: rgba(255, 255, 255, 0.28);
+  --glass-shadow: 0 8px 32px rgba(10, 42, 74, 0.18);
+  --glass-blur: 14px;
+  --glass-accent-tint: color-mix(in oklab, var(--color-accent) 28%, transparent);
+  --glass-whatsapp-tint: color-mix(in oklab, var(--color-whatsapp) 55%, transparent);
+}
+.dark {
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.glass {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.glass:hover {
+  background-color: var(--glass-bg-strong);
+}
+
+.glass-cta {
+  position: relative;
+  background-image: linear-gradient(135deg, var(--glass-accent-tint), transparent 70%);
+  background-color: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.glass-cta:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: var(--shadow-elevated), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.glass-icon {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.glass-icon:hover {
+  background-color: var(--glass-bg-strong);
+  transform: scale(1.08);
+}
+
+/* WhatsApp variant: keeps brand color readable through the glass */
+.glass-icon-whatsapp {
+  background-image: linear-gradient(135deg, var(--glass-whatsapp-tint), color-mix(in oklab, var(--color-whatsapp) 35%, transparent));
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass,
+  .glass-cta,
+  .glass-icon {
+    background-color: color-mix(in oklab, var(--color-primary) 70%, transparent);
+  }
+}
