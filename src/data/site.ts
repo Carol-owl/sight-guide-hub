@@ -179,7 +179,7 @@ export const LOCATIONS: Location[] = [
   {
     id: "ibv",
     name: "Instituto Bela Vista de Oftalmologia",
-    address: "Av. dos Holandeses, São Luís — MA",
+    address: "Rua Auxiliar 2, Nº 31, Cohajap, São Luís — MA, 65072-790",
     phone: "(98) 3301-5060",
     hours: "Seg a Sex: 08h às 18h • Sáb: 08h às 12h",
     mapEmbed:
