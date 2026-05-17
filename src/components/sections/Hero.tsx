@@ -14,7 +14,7 @@ export function Hero() {
       />
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:px-8 lg:pb-24 lg:pt-40">
         <div className="fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-primary-foreground/90">
+          <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-primary-foreground/90">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Instituto Bela Vista
           </div>
 
