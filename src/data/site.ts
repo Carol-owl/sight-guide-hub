@@ -183,7 +183,7 @@ export const LOCATIONS: Location[] = [
     phone: "(98) 3301-5060",
     hours: "Seg a Sex: 08h às 18h • Sáb: 08h às 12h",
     mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.0264786586554!2d-44.24283642550851!3d-2.4981618381505357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f6935d0ae186ad%3A0xaa7589d4bba04063!2sINSTITUTO%20BELA%20VISTA%20DE%20OFTALMOLOGIA!5e0!3m2!1spt-BR!2sbr!4v1779032339726!5m2!1spt-BR!2sbr",
+      "https://www.google.com/maps?q=Rua+Auxiliar+2,+31,+Cohajap,+S%C3%A3o+Lu%C3%ADs+-+MA,+65072-790&output=embed",
   },
 ];
 
