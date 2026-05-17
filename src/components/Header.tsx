@@ -111,7 +111,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="mt-2 flex min-h-[56px] items-center justify-center gap-2 rounded-full bg-accent px-5 font-semibold text-accent-foreground"
+              className="glass-cta mt-2 flex min-h-[56px] items-center justify-center gap-2 rounded-full px-5 font-semibold text-primary"
             >
               <MessageCircle className="h-5 w-5" aria-hidden />
               Agende sua Consulta
