@@ -72,7 +72,7 @@ export function Header() {
             href={waLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden min-h-[44px] items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition-all hover:scale-[1.02] hover:shadow-[var(--shadow-elevated)] sm:inline-flex"
+            className={`glass-cta hidden min-h-[44px] items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold sm:inline-flex ${onHero ? "text-primary-foreground" : "text-primary"}`}
           >
             <MessageCircle className="h-4 w-4" aria-hidden />
             Agende sua Consulta
@@ -82,7 +82,7 @@ export function Header() {
             onClick={() => setOpen((s) => !s)}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
-            className={`inline-flex h-12 w-12 items-center justify-center rounded-full transition-colors lg:hidden ${onHero ? "text-primary-foreground" : "text-primary"}`}
+            className={`glass-icon inline-flex h-12 w-12 items-center justify-center rounded-full lg:hidden ${onHero ? "text-primary-foreground" : "text-primary"}`}
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -111,7 +111,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="mt-2 flex min-h-[56px] items-center justify-center gap-2 rounded-full bg-accent px-5 font-semibold text-accent-foreground"
+              className="glass-cta mt-2 flex min-h-[56px] items-center justify-center gap-2 rounded-full px-5 font-semibold text-primary"
             >
               <MessageCircle className="h-5 w-5" aria-hidden />
               Agende sua Consulta
