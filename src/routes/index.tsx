@@ -63,7 +63,7 @@ function Index() {
       <main id="conteudo">
         <Hero />
         <About />
-        <EducationTimeline />
+        
         <Specialties />
         <Procedures />
         <Testimonials />
