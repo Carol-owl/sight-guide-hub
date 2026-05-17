@@ -132,7 +132,7 @@ export const PROCEDURES: Procedure[] = [
   { id: "p3", technicalName: "Trabeculectomia", popularName: "Cirurgia de glaucoma", description: "Criação de uma nova via de drenagem para reduzir a pressão intraocular." },
   { id: "p4", technicalName: "Implante de drenagem (tubo)", popularName: "Válvula para glaucoma", description: "Indicado em glaucomas avançados ou refratários ao tratamento clínico." },
   { id: "p5", technicalName: "Implante de LIO premium", popularName: "Lente multifocal ou tórica", description: "Lentes que corrigem grau e/ou ampliam o foco para perto, intermediário e longe." },
-  { id: "p6", technicalName: "Aplicação de toxina botulínica", popularName: "Botox terapêutico ocular", description: "Tratamento de blefaroespasmo, espasmo hemifacial e indicações funcionais." },
+  { id: "p6", technicalName: "Exérese de Pterígio", popularName: "Cirurgia de Pterígio", description: "A cirurgia de pterígio remove o excesso de tecido conjuntival que cresce sobre a córnea para aliviar sintomas e melhorar a visão." },
 ];
 
 export interface Testimonial {
