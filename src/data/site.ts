@@ -181,7 +181,6 @@ export const GALLERY = [
 
 export const NAV_LINKS = [
   { href: "#sobre", label: "Sobre" },
-  { href: "#formacao", label: "Formação" },
   { href: "#especialidades", label: "Áreas" },
   { href: "#procedimentos", label: "Procedimentos" },
   { href: "#depoimentos", label: "Depoimentos" },
