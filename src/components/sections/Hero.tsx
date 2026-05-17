@@ -32,14 +32,14 @@ export function Hero() {
               href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[56px] items-center gap-2 rounded-full bg-accent px-7 text-base font-semibold text-accent-foreground shadow-[var(--shadow-elevated)] transition-transform hover:scale-[1.03]"
+              className="glass-cta inline-flex min-h-[56px] items-center gap-2 rounded-full px-7 text-base font-semibold text-primary-foreground"
             >
               <MessageCircle className="h-5 w-5" aria-hidden />
               Agende sua Consulta
             </a>
             <a
               href="#especialidades"
-              className="inline-flex min-h-[56px] items-center gap-2 rounded-full border border-primary-foreground/30 px-6 text-base font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+              className="glass inline-flex min-h-[56px] items-center gap-2 rounded-full px-6 text-base font-medium text-primary-foreground"
             >
               Conheça as áreas <ArrowDown className="h-4 w-4" aria-hidden />
             </a>
