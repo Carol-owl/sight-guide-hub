@@ -13,6 +13,8 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const onHero = !scrolled;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
@@ -22,7 +24,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 lg:px-8">
-        <div className="flex items-center gap-3 text-primary">
+        <div className={`flex items-center gap-3 ${onHero ? "text-primary-foreground" : "text-primary"}`}>
           <a
             href={CONTACT.institutoUrl}
             target="_blank"
@@ -30,19 +32,34 @@ export function Header() {
             aria-label="Instituto Bela Vista — site externo"
             className="flex items-center"
           >
-            <img src={ASSETS.logoIbv} alt="Instituto Bela Vista" className="h-10 w-auto" width={120} height={36} />
+            <img
+              src={ASSETS.logoIbv}
+              alt="Instituto Bela Vista"
+              className={`h-10 w-auto transition-[filter] duration-300 ${onHero ? "brightness-0 invert" : ""}`}
+              width={120}
+              height={36}
+            />
           </a>
-          <span aria-hidden className="hidden h-8 w-px bg-border md:block" />
+          <span aria-hidden className={`hidden h-8 w-px md:block ${onHero ? "bg-primary-foreground/30" : "bg-border"}`} />
           <a href="#top" className="hidden items-center md:flex" aria-label="Dr. Daniel Campos — início">
-            <img src={ASSETS.logoDaniel} alt="Dr. Daniel Campos — Oftalmologia" className="h-9 w-auto" width={160} height={36} />
+            <img
+              src={ASSETS.logoDaniel}
+              alt="Dr. Daniel Campos — Oftalmologia"
+              className={`h-9 w-auto transition-[filter] duration-300 ${onHero ? "brightness-0 invert" : ""}`}
+              width={160}
+              height={36}
+            />
           </a>
         </div>
 
         <nav aria-label="Navegação principal" className="hidden lg:block">
-          <ul className="flex items-center gap-7 text-sm font-medium text-primary">
+          <ul className={`flex items-center gap-7 text-sm font-medium ${onHero ? "text-primary-foreground" : "text-primary"}`}>
             {NAV_LINKS.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="transition-colors hover:text-secondary">
+                <a
+                  href={l.href}
+                  className={`transition-colors ${onHero ? "hover:text-accent" : "hover:text-secondary"}`}
+                >
                   {l.label}
                 </a>
               </li>
@@ -65,7 +82,7 @@ export function Header() {
             onClick={() => setOpen((s) => !s)}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full text-primary lg:hidden"
+            className={`inline-flex h-12 w-12 items-center justify-center rounded-full transition-colors lg:hidden ${onHero ? "text-primary-foreground" : "text-primary"}`}
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
