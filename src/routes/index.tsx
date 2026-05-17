@@ -5,7 +5,7 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { BackToTop } from "@/components/BackToTop";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
-import { EducationTimeline } from "@/components/sections/EducationTimeline";
+
 import { Specialties } from "@/components/sections/Specialties";
 import { Procedures } from "@/components/sections/Procedures";
 import { Testimonials } from "@/components/sections/Testimonials";
