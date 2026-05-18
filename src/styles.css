@@ -268,11 +268,78 @@ html {
   background-image: linear-gradient(135deg, var(--glass-whatsapp-tint), color-mix(in oklab, var(--color-whatsapp) 35%, transparent));
 }
 
+/* Dark glass variants — for CTAs/icons placed over light backgrounds.
+   Keep dark, readable surface with the same frosted feel. */
+:root {
+  --glass-dark-bg: color-mix(in oklab, var(--color-primary) 78%, transparent);
+  --glass-dark-bg-strong: color-mix(in oklab, var(--color-primary) 92%, transparent);
+  --glass-dark-border: rgba(255, 255, 255, 0.18);
+  --glass-dark-shadow: 0 10px 30px rgba(10, 42, 74, 0.35);
+  --glass-accent-bg: color-mix(in oklab, var(--color-accent) 80%, transparent);
+  --glass-accent-bg-strong: color-mix(in oklab, var(--color-accent) 95%, transparent);
+}
+
+.glass-cta-dark {
+  position: relative;
+  background-color: var(--glass-dark-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-dark-border);
+  box-shadow: var(--glass-dark-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  color: var(--color-primary-foreground);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.glass-cta-dark:hover {
+  background-color: var(--glass-dark-bg-strong);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 14px 36px rgba(10, 42, 74, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.glass-cta-accent {
+  position: relative;
+  background-color: var(--glass-accent-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-dark-border);
+  box-shadow: var(--glass-dark-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: var(--color-accent-foreground);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.glass-cta-accent:hover {
+  background-color: var(--glass-accent-bg-strong);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 14px 36px rgba(10, 42, 74, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.glass-icon-dark {
+  background-color: var(--glass-dark-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-dark-border);
+  box-shadow: var(--glass-dark-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: var(--color-primary-foreground);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.glass-icon-dark:hover {
+  background-color: var(--glass-dark-bg-strong);
+  transform: scale(1.08);
+  box-shadow: 0 14px 36px rgba(10, 42, 74, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
 /* Fallback for browsers without backdrop-filter support */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass,
   .glass-cta,
   .glass-icon {
     background-color: color-mix(in oklab, var(--color-primary) 70%, transparent);
+  }
+  .glass-cta-dark,
+  .glass-icon-dark {
+    background-color: var(--color-primary);
+  }
+  .glass-cta-accent {
+    background-color: var(--color-accent);
   }
 }
