@@ -15,7 +15,7 @@ export function BackToTop() {
       type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Voltar ao topo"
-      className="glass-icon fixed bottom-24 right-5 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full text-primary-foreground sm:bottom-28"
+      className="glass-icon-dark fixed bottom-24 right-5 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full sm:bottom-28"
     >
       <ArrowUp className="h-5 w-5" aria-hidden />
     </button>

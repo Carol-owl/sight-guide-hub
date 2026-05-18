@@ -71,7 +71,7 @@ export function Location() {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href={`tel:+${loc.phone.replace(/\D/g, "")}`}
-                className="inline-flex min-h-[56px] flex-1 items-center justify-center gap-2 rounded-full border border-border bg-background px-5 font-semibold text-primary transition-colors hover:bg-muted"
+                className="glass-cta-dark inline-flex min-h-[56px] flex-1 items-center justify-center gap-2 rounded-full px-5 font-semibold"
               >
                 <Phone className="h-4 w-4" aria-hidden />
                 Ligar agora
@@ -80,7 +80,7 @@ export function Location() {
                 href={waLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[56px] flex-1 items-center justify-center gap-2 rounded-full bg-accent px-5 font-semibold text-accent-foreground transition-transform hover:scale-[1.02]"
+                className="glass-cta-accent inline-flex min-h-[56px] flex-1 items-center justify-center gap-2 rounded-full px-5 font-semibold"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden />
                 WhatsApp

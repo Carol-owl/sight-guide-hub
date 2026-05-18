@@ -34,7 +34,7 @@ export function Procedures() {
             href={waLink("Olá, Dr. Daniel! Gostaria de saber mais sobre os procedimentos.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[56px] items-center gap-2 rounded-full bg-primary px-7 font-semibold text-primary-foreground transition-transform hover:scale-[1.02]"
+            className="glass-cta-dark inline-flex min-h-[56px] items-center gap-2 rounded-full px-7 font-semibold"
           >
             Tire suas dúvidas no WhatsApp
             <ArrowRight className="h-4 w-4" aria-hidden />

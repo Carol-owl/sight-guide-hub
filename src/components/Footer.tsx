@@ -88,7 +88,7 @@ export function Footer() {
               href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex min-h-[56px] items-center gap-2 rounded-full bg-accent px-6 font-semibold text-accent-foreground transition-transform hover:scale-[1.02]"
+              className="glass-cta-accent mt-5 inline-flex min-h-[56px] items-center gap-2 rounded-full px-6 font-semibold"
             >
               <MessageCircle className="h-5 w-5" aria-hidden />
               Falar no WhatsApp

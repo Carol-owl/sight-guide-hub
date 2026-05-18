@@ -35,7 +35,7 @@ export function About() {
             href={waLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-7 inline-flex min-h-[56px] items-center gap-2 rounded-full bg-primary px-6 font-semibold text-primary-foreground transition-transform hover:scale-[1.02]"
+            className="glass-cta-dark mt-7 inline-flex min-h-[56px] items-center gap-2 rounded-full px-6 font-semibold"
           >
             Quero agendar uma avaliação
             <ArrowRight className="h-4 w-4" aria-hidden />
