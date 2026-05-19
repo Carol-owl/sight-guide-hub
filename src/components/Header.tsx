@@ -33,9 +33,9 @@ export function Header() {
             className="flex items-center"
           >
             <img
-              src={ASSETS.logoIbv}
+              src={onHero ? ASSETS.logoIbvWhite : ASSETS.logoIbv}
               alt="Instituto Bela Vista Oftalmologia"
-              className={`h-12 w-auto transition-[filter] duration-300 ${onHero ? "drop-shadow-[0_1px_6px_rgba(0,0,0,0.35)]" : ""}`}
+              className={`h-12 w-auto transition-[filter] duration-300 ${onHero ? "drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]" : ""}`}
               width={160}
               height={54}
             />
