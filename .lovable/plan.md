@@ -1,19 +1,20 @@
-## Objetivo
-Deixar o ícone de olho do logo IBV branco quando exibido sobre o hero, mantendo a versão sage original no header scrolled e no footer.
+## Situação atual
 
-## Passos
+O `Header.tsx` já faz exatamente o que você descreveu:
 
-1. **Gerar variante branca do logo IBV**
-   - Usar `imagegen--edit_image` sobre `src/assets/logo-ibv.png` para produzir `src/assets/logo-ibv-white.png` (PNG transparente) com olho + texto "Instituto Bela Vista / Oftalmologia" em branco puro, preservando proporções e composição.
+```tsx
+src={onHero ? ASSETS.logoIbvWhite : ASSETS.logoIbv}
+```
 
-2. **Expor a nova variante**
-   - Em `src/data/site.ts`, adicionar import `logoIbvWhite` apontando para o novo asset e expor em `site.brand` (ex.: `ibvLogoWhite`).
+- `onHero = true` (topo da página, fundo escuro do hero) → logo **branco**
+- `onHero = false` (após rolar > 32px, header sólido claro) → logo **verde** original
 
-3. **Trocar dinamicamente no Header**
-   - Em `src/components/Header.tsx`, no `<img>` do logo IBV: usar `src={onHero ? ibvLogoWhite : ibvLogo}` e remover o `drop-shadow` pesado quando branco (sombra leve só para legibilidade).
-   - Footer permanece inalterado (continua usando o logo sage sobre fundo claro).
+## Nada a fazer
 
-## Detalhes técnicos
-- Asset novo: `src/assets/logo-ibv-white.png`, fundo transparente, mesma proporção horizontal.
-- Sem alterações de tokens em `styles.css` (o branco do hero já é `--primary-foreground`).
-- Escopo restrito a frontend/apresentação; sem mudanças em rotas, dados ou backend.
+Não há mudanças de código necessárias. Se você está vendo o logo verde sobre o hero, pode ser cache do navegador — recarregue com Ctrl+Shift+R.
+
+Se mesmo assim o comportamento não estiver correto, me diga:
+1. Em qual estado o logo aparece errado (topo ou após rolar)?
+2. Qual cor aparece quando deveria ser outra?
+
+Assim consigo investigar o caso específico.
