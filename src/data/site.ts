@@ -1,4 +1,5 @@
 import logoIbv from "@/assets/logo-ibv.png";
+import logoIbvWhite from "@/assets/logo-ibv-white.png";
 import logoDaniel from "@/assets/logo-daniel.svg";
 import danielHero from "@/assets/daniel-hero.jpg";
 import danielBw from "@/assets/daniel-bw.jpg";
@@ -13,6 +14,7 @@ import clinicInterior from "@/assets/clinic-interior.jpg";
 
 export const ASSETS = {
   logoIbv,
+  logoIbvWhite,
   logoDaniel,
   danielHero,
   danielBw,
