@@ -13,6 +13,8 @@ import specCatarata from "@/assets/specialty-catarata.jpg";
 import specNeuro from "@/assets/specialty-neuro.jpg";
 import specRefrativa from "@/assets/specialty-refrativa.jpg";
 import clinicInterior from "@/assets/clinic-interior.jpg";
+import ibvFacade1 from "@/assets/ibv-facade-1.jpg";
+import ibvFacade2 from "@/assets/ibv-facade-2.jpg";
 
 export const ASSETS = {
   logoIbv,
@@ -184,6 +186,8 @@ export const GALLERY = [
   { id: "g2", url: danielSurgery2, alt: "Dr. Daniel Campos utilizando microscópio cirúrgico" },
   { id: "g3", url: clinicInterior, alt: "Interior do consultório do Instituto Bela Vista" },
   { id: "g4", url: danielSitting, alt: "Retrato profissional do Dr. Daniel Campos" },
+  { id: "g5", url: ibvFacade1, alt: "Placa do Instituto Bela Vista de Oftalmologia na fachada" },
+  { id: "g6", url: ibvFacade2, alt: "Fachada do Instituto Bela Vista de Oftalmologia em São Luís" },
 ];
 
 export const NAV_LINKS = [
