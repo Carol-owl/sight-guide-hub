@@ -15,8 +15,8 @@ export function Procedures() {
           <ul className="divide-y divide-border">
             {PROCEDURES.map((p) => (
               <li key={p.id} className="grid items-start gap-4 p-5 md:grid-cols-[auto_1fr_2fr] md:gap-8 md:p-7">
-                <div className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-accent/15 text-accent">
-                  <Stethoscope className="h-5 w-5" aria-hidden />
+                <div className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-accent/15 p-2">
+                  <img src={iconEyecare} alt="" aria-hidden className="h-full w-full object-contain drop-shadow-[0_0_6px_color-mix(in_oklab,var(--color-accent)_45%,transparent)]" />
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-primary">{p.technicalName}</h3>
