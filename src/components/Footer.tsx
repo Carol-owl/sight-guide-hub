@@ -7,14 +7,23 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 drop-shadow-[0_0_18px_color-mix(in_oklab,var(--color-accent)_55%,transparent)]">
               <img
                 src={ASSETS.logoIbv}
                 alt="Instituto Bela Vista Oftalmologia"
-                className="h-14 w-auto rounded-lg bg-primary-foreground/95 p-2"
+                loading="eager"
+                decoding="sync"
+                className="h-20 w-auto rounded-lg bg-primary-foreground/95 p-3 md:h-24"
               />
             </div>
-            <img src={ASSETS.logoDanielWhite} alt="Dr. Daniel Campos" className="mt-4 h-12 w-auto" />
+            <img
+              src={ASSETS.logoDanielWhite}
+              alt="Dr. Daniel Campos"
+              loading="eager"
+              decoding="sync"
+              className="mt-4 h-16 w-auto drop-shadow-[0_0_14px_color-mix(in_oklab,var(--color-accent)_45%,transparent)] md:h-20"
+            />
+
             <p className="mt-4 text-sm text-primary-foreground/80">
               {DOCTOR.crm} • {DOCTOR.rqe}
               <br />
