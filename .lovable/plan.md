@@ -1,20 +1,28 @@
-## Situação atual
+## Objetivo
 
-O `Header.tsx` já faz exatamente o que você descreveu:
+Aplicar ao logo "Dr. Daniel Campos" o mesmo comportamento do logo IBV: versão **branca** sobre o hero (fundo escuro) e versão **colorida original** quando o header fica sólido após rolar.
 
-```tsx
-src={onHero ? ASSETS.logoIbvWhite : ASSETS.logoIbv}
-```
+## Mudanças
 
-- `onHero = true` (topo da página, fundo escuro do hero) → logo **branco**
-- `onHero = false` (após rolar > 32px, header sólido claro) → logo **verde** original
+1. **Adicionar assets**
+   - Copiar `user-uploads://LOGO.COR2.PNG` → `src/assets/logo-daniel-color.png` (logo colorido oficial fornecido).
+   - Gerar `src/assets/logo-daniel-white.png` — versão branca (olho + "Daniel Campos / Oftalmologista") sobre fundo transparente, mantendo a tipografia/proporção do original.
 
-## Nada a fazer
+2. **`src/data/site.ts`**
+   - Importar `logoDanielColor` e `logoDanielWhite`.
+   - Expor ambos em `ASSETS` (mantendo `logoDaniel` SVG por compatibilidade com o Footer, ou substituindo pelo color — ver abaixo).
 
-Não há mudanças de código necessárias. Se você está vendo o logo verde sobre o hero, pode ser cache do navegador — recarregue com Ctrl+Shift+R.
+3. **`src/components/Header.tsx`**
+   - Trocar a `<img>` do Dr. Daniel para:
+     ```tsx
+     src={onHero ? ASSETS.logoDanielWhite : ASSETS.logoDanielColor}
+     ```
+   - Remover o hack `brightness-0 invert` (não é mais necessário).
+   - Manter um leve `drop-shadow` no estado hero para contraste, igual ao IBV.
 
-Se mesmo assim o comportamento não estiver correto, me diga:
-1. Em qual estado o logo aparece errado (topo ou após rolar)?
-2. Qual cor aparece quando deveria ser outra?
+4. **`src/components/Footer.tsx`** (footer é fundo verde escuro)
+   - Trocar para `ASSETS.logoDanielWhite` para garantir legibilidade sobre o `bg-primary`.
 
-Assim consigo investigar o caso específico.
+## Fora de escopo
+
+- Nenhuma mudança em cores do design system, layout do hero ou demais seções.
