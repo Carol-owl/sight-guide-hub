@@ -1,5 +1,6 @@
-import { Stethoscope, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PROCEDURES, waLink } from "@/data/site";
+import iconEyecare from "@/assets/icon-eyecare.png";
 
 export function Procedures() {
   return (
