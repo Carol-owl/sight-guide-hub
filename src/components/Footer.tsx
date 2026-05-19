@@ -14,7 +14,7 @@ export function Footer() {
                 className="h-14 w-auto rounded-lg bg-primary-foreground/95 p-2"
               />
             </div>
-            <img src={ASSETS.logoDaniel} alt="Dr. Daniel Campos" className="mt-4 h-10 w-auto text-primary-foreground" />
+            <img src={ASSETS.logoDanielWhite} alt="Dr. Daniel Campos" className="mt-4 h-12 w-auto" />
             <p className="mt-4 text-sm text-primary-foreground/80">
               {DOCTOR.crm} • {DOCTOR.rqe}
               <br />
