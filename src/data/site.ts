@@ -1,4 +1,4 @@
-import logoIbv from "@/assets/logo-ibv.svg";
+import logoIbv from "@/assets/logo-ibv.png";
 import logoDaniel from "@/assets/logo-daniel.svg";
 import danielHero from "@/assets/daniel-hero.jpg";
 import danielBw from "@/assets/daniel-bw.jpg";

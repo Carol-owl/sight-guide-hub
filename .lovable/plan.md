@@ -1,36 +1,27 @@
 ## Objetivo
-Adicionar uma nova seção "Contato" na home (entre Localização e o rodapé) com um formulário profissional que, ao enviar, abre o cliente de e-mail do usuário (`mailto:`) já preenchido com os dados — direcionado a `contato@drdanielcamposoftalmo.com`.
 
-## Arquivos
-- **Criar** `src/components/sections/Contact.tsx` — seção + formulário (React Hook Form + Zod).
-- **Editar** `src/routes/index.tsx` — importar e renderizar `<Contact />` após `<Location />`.
-- **Editar** `src/data/site.ts` — adicionar `contactEmail: "contato@drdanielcamposoftalmo.com"` em `CONTACT` e link `{ href: "#contato", label: "Contato" }` em `NAV_LINKS`.
+Substituir o logo atual do Instituto Bela Vista (SVG genérico "IBV") pelo logo oficial enviado no PDF — versão horizontal com ícone de olho + "Instituto Bela Vista / OFTALMOLOGIA" no verde sálvia da marca.
 
-## Campos e validação (Zod)
-- **Nome completo**: obrigatório, 2–100 caracteres, trim.
-- **E-mail**: obrigatório, formato válido, ≤255.
-- **Assunto**: obrigatório, 3–150.
-- **Mensagem**: obrigatória, 10–1000, `<Textarea>` com 6 linhas.
-- Mensagens de erro em PT-BR exibidas via `FormMessage`.
+## Passos
 
-## Comportamento de envio (mailto)
-No `onSubmit`:
-1. Monta `subject = "[Site] " + assunto` e `body` com nome, e-mail e mensagem (multi-linha).
-2. `window.location.href = \`mailto:contato@drdanielcamposoftalmo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}\``.
-3. Exibe toast (sonner) "Abrindo seu app de e-mail…" e reseta o form.
-4. Mostra um aviso discreto abaixo do botão: "Se nada acontecer, escreva para [contato@drdanielcamposoftalmo.com](mailto:…)" como fallback.
+1. **Gerar PNG transparente do logo**
+   - Usar a página 3 do PDF (versão sálvia sobre branco) e remover o fundo, gerando `src/assets/logo-ibv.png` com transparência. Mantém as cores originais da marca (verde sálvia ~#8FA38F).
 
-## Design (consistente com o restante do site)
-- Mesma estrutura visual das outras seções (`<section id="contato" className="py-20 …">`, container, `<SectionHeader>` se já existir, senão `<h2>` com classes do tema).
-- Layout 2 colunas em `md+`: à esquerda card com info (e-mail clicável `mailto:`, telefone, horário reaproveitando dados de `LOCATIONS[0]`); à direita o formulário em `<Card>` com `bg-card`.
-- Inputs/Textarea do shadcn já existentes; botão de envio usa a classe `glass-cta-dark` (mesmo padrão dos demais CTAs solicitados).
-- Tokens semânticos (`text-foreground`, `bg-muted`, `border-border`) — nada de cores hardcoded.
-- Responsivo: 1 coluna no mobile, 2 colunas a partir de `md`; padding, gaps e tipografia espelhando `Location.tsx`.
-- Acessibilidade: `<Label htmlFor>` em todos os campos, `aria-invalid` automático via FormControl, foco visível.
+2. **Atualizar `src/data/site.ts`**
+   - Trocar o import `logo-ibv.svg` → `logo-ibv.png`.
 
-## SEO / semântica
-- `<section>` com `id="contato"` e `aria-labelledby`. `<h2>` único da seção.
-- Link do header "Contato" aponta para `#contato` (já há scroll suave configurado).
+3. **Ajustar `src/components/Header.tsx` e `src/components/Footer.tsx`**
+   - Remover o filtro `brightness-0 invert` aplicado ao logo IBV no hero/header e no footer, para preservar as cores originais (verde sálvia) conforme pedido.
+   - Aumentar levemente a altura (`h-10` → `h-11/12`) se necessário para boa legibilidade, já que o novo logo inclui o lockup completo (ícone + texto + tagline).
 
-## Fora de escopo
-- Backend, banco de dados, envio real de e-mail, captcha, integração com provedor — usuário escolheu "Apenas mailto:".
+4. **Adicionar token de cor da marca**
+   - Em `src/styles.css`, registrar `--color-ibv-sage: oklch(...)` com o verde sálvia do logo, para uso futuro (ex.: detalhes UI alinhados à identidade do IBV). Não altera cores existentes do site.
+
+5. **Fora do escopo**
+   - Não troco o logo do Dr. Daniel.
+   - Não altero a paleta global do site (azul/dourado permanece).
+   - Não removo o SVG antigo do repositório (mantenho para histórico, mas não importado).
+
+## Observação visual
+
+O logo do PDF é horizontal e mais "alto" que o atual (tem ícone + duas linhas de texto). No header sobre o hero escuro, o verde sálvia tem contraste suficiente; caso fique fraco em telas pequenas, posso adicionar um leve `drop-shadow` sutil — confirme se quer essa proteção.
