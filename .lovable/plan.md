@@ -1,28 +1,20 @@
 ## Objetivo
 
-Aplicar ao logo "Dr. Daniel Campos" o mesmo comportamento do logo IBV: versão **branca** sobre o hero (fundo escuro) e versão **colorida original** quando o header fica sólido após rolar.
+Adicionar as 2 novas fotos da fachada do Instituto Bela Vista à galeria da seção **Bastidores** (`#midia`).
 
 ## Mudanças
 
-1. **Adicionar assets**
-   - Copiar `user-uploads://LOGO.COR2.PNG` → `src/assets/logo-daniel-color.png` (logo colorido oficial fornecido).
-   - Gerar `src/assets/logo-daniel-white.png` — versão branca (olho + "Daniel Campos / Oftalmologista") sobre fundo transparente, mantendo a tipografia/proporção do original.
+1. **Copiar assets**
+   - `user-uploads://BELAVISTA-72.jpg` → `src/assets/ibv-facade-1.jpg` (placa "Instituto Bela Vista Oftalmologia" com logo do olho)
+   - `user-uploads://BELAVISTA-73.jpg` → `src/assets/ibv-facade-2.jpg` (fachada com WhatsApp 98 3301-5060)
 
 2. **`src/data/site.ts`**
-   - Importar `logoDanielColor` e `logoDanielWhite`.
-   - Expor ambos em `ASSETS` (mantendo `logoDaniel` SVG por compatibilidade com o Footer, ou substituindo pelo color — ver abaixo).
+   - Importar `ibvFacade1` e `ibvFacade2`.
+   - Adicionar 2 novos itens ao array `GALLERY` com `alt` descritivo (ex.: "Fachada do Instituto Bela Vista de Oftalmologia").
 
-3. **`src/components/Header.tsx`**
-   - Trocar a `<img>` do Dr. Daniel para:
-     ```tsx
-     src={onHero ? ASSETS.logoDanielWhite : ASSETS.logoDanielColor}
-     ```
-   - Remover o hack `brightness-0 invert` (não é mais necessário).
-   - Manter um leve `drop-shadow` no estado hero para contraste, igual ao IBV.
-
-4. **`src/components/Footer.tsx`** (footer é fundo verde escuro)
-   - Trocar para `ASSETS.logoDanielWhite` para garantir legibilidade sobre o `bg-primary`.
+3. **`src/components/sections/Media.tsx`** — sem alteração de código.
+   - O grid atual (`sm:grid-cols-2 lg:grid-cols-4`) com a primeira foto em destaque (`sm:col-span-2 sm:row-span-2`) acomoda naturalmente 6 itens. A primeira segue sendo a cirurgia em destaque; as novas entram como tiles regulares no final.
 
 ## Fora de escopo
 
-- Nenhuma mudança em cores do design system, layout do hero ou demais seções.
+- Reordenar fotos existentes, alterar layout do grid ou tamanhos.
