@@ -1,19 +1,20 @@
 ## Mudança
 
-Regenerar `src/assets/specialty-catarata.jpg` com um olho que mostre **catarata madura de verdade** — a pupila inteira tomada por uma opacidade branco-leitosa/acinzentada (leucocoria), não preta.
+Substituir `src/assets/specialty-refrativa.jpg` por uma foto realista de cirurgia refrativa a laser, com foco na interação laser-córnea.
 
-### Prompt revisado (pontos-chave)
-- Close fotográfico de olho humano idoso.
-- **Pupila completamente esbranquiçada / branco-acinzentada opaca** ocupando todo o centro da íris (cristalino opacificado visível através da pupila).
-- Sem reflexo pupilar preto — a pupila NÃO deve aparecer escura.
-- Íris ao redor visível, esclera levemente avermelhada/envelhecida, pálpebra com rugas finas.
-- Iluminação clínica suave, fotorrealista, estilo oftalmológico.
-- Sem texto, sem instrumentos.
+### Prompt (pontos-chave)
+- Close fotográfico macro de um olho humano aberto durante cirurgia refrativa (LASIK/PRK).
+- Feixe de laser excimer fino e preciso incidindo sobre a córnea, com leve reflexo/halo do laser visível na superfície.
+- Espéculo palpebral discreto mantendo o olho aberto (sem causar desconforto visual exagerado).
+- Iluminação azulada/esverdeada típica de microscópio cirúrgico oftalmológico, foco nítido na córnea.
+- Estética de centro cirúrgico: limpa, tecnológica, profissional, alta definição.
+- Fotografia real, não render 3D nem ilustração.
+- Sem texto, sem logos, sem sangue, sem aspecto perturbador.
 
-Vou usar `imagegen--generate_image` com `model: standard`, 1280×800, sobrescrevendo o arquivo. Nenhuma alteração de código.
+Modelo: `imagegen--generate_image` standard, 1280×800, sobrescrevendo o arquivo. Nenhuma alteração de código (import em `src/data/site.ts` segue igual).
 
 ## QA
-Após gerar, inspeciono visualmente se a pupila está de fato turva (branca/cinza). Se ainda vier saudável, regenero reforçando "white pupil, leukocoria, dense nuclear cataract, no dark pupil".
+Inspeciono visualmente: precisa parecer foto clínica real, ter o laser visível sobre a córnea, e não parecer CGI. Se vier artificial/3D, regenero reforçando "real photograph, ophthalmic surgical microscope photography, not 3D render".
 
 ## Fora de escopo
-Outros assets ou layout.
+Outros assets, layout, textos.
