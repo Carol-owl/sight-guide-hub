@@ -11,6 +11,7 @@ import { Procedures } from "@/components/sections/Procedures";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Media } from "@/components/sections/Media";
 import { Location } from "@/components/sections/Location";
+import { Contact } from "@/components/sections/Contact";
 
 const title = "Dr. Daniel Costa Campos — Oftalmologista em São Luís | Instituto Bela Vista";
 const description =
@@ -69,6 +70,7 @@ function Index() {
         <Testimonials />
         <Media />
         <Location />
+        <Contact />
       </main>
       <Footer />
       <FloatingWhatsApp />

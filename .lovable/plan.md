@@ -1,69 +1,36 @@
-# Plano — Glass escuro nos CTAs restantes e nitidez do "Voltar ao topo"
+## Objetivo
+Adicionar uma nova seção "Contato" na home (entre Localização e o rodapé) com um formulário profissional que, ao enviar, abre o cliente de e-mail do usuário (`mailto:`) já preenchido com os dados — direcionado a `contato@drdanielcamposoftalmo.com`.
 
-Aplicar o efeito de vidro nos botões que ficaram de fora, mas com **fundo escuro** (em vez do vidro claro usado no hero) para preservar contraste sobre fundos claros. Também aumentar a nitidez do botão flutuante "Voltar ao topo".
+## Arquivos
+- **Criar** `src/components/sections/Contact.tsx` — seção + formulário (React Hook Form + Zod).
+- **Editar** `src/routes/index.tsx` — importar e renderizar `<Contact />` após `<Location />`.
+- **Editar** `src/data/site.ts` — adicionar `contactEmail: "contato@drdanielcamposoftalmo.com"` em `CONTACT` e link `{ href: "#contato", label: "Contato" }` em `NAV_LINKS`.
 
-## 1. Nova variante escura em `src/styles.css`
+## Campos e validação (Zod)
+- **Nome completo**: obrigatório, 2–100 caracteres, trim.
+- **E-mail**: obrigatório, formato válido, ≤255.
+- **Assunto**: obrigatório, 3–150.
+- **Mensagem**: obrigatória, 10–1000, `<Textarea>` com 6 linhas.
+- Mensagens de erro em PT-BR exibidas via `FormMessage`.
 
-Adicionar tokens para a variante escura no `:root` (e equivalente no `.dark`):
+## Comportamento de envio (mailto)
+No `onSubmit`:
+1. Monta `subject = "[Site] " + assunto` e `body` com nome, e-mail e mensagem (multi-linha).
+2. `window.location.href = \`mailto:contato@drdanielcamposoftalmo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}\``.
+3. Exibe toast (sonner) "Abrindo seu app de e-mail…" e reseta o form.
+4. Mostra um aviso discreto abaixo do botão: "Se nada acontecer, escreva para [contato@drdanielcamposoftalmo.com](mailto:…)" como fallback.
 
-```css
---glass-dark-bg: rgba(10, 42, 74, 0.72);          /* baseado em --primary */
---glass-dark-bg-strong: rgba(10, 42, 74, 0.85);
---glass-dark-border: rgba(255, 255, 255, 0.18);
---glass-dark-shadow: 0 10px 30px rgba(10, 42, 74, 0.35);
-```
+## Design (consistente com o restante do site)
+- Mesma estrutura visual das outras seções (`<section id="contato" className="py-20 …">`, container, `<SectionHeader>` se já existir, senão `<h2>` com classes do tema).
+- Layout 2 colunas em `md+`: à esquerda card com info (e-mail clicável `mailto:`, telefone, horário reaproveitando dados de `LOCATIONS[0]`); à direita o formulário em `<Card>` com `bg-card`.
+- Inputs/Textarea do shadcn já existentes; botão de envio usa a classe `glass-cta-dark` (mesmo padrão dos demais CTAs solicitados).
+- Tokens semânticos (`text-foreground`, `bg-muted`, `border-border`) — nada de cores hardcoded.
+- Responsivo: 1 coluna no mobile, 2 colunas a partir de `md`; padding, gaps e tipografia espelhando `Location.tsx`.
+- Acessibilidade: `<Label htmlFor>` em todos os campos, `aria-invalid` automático via FormControl, foco visível.
 
-Criar duas novas classes utilitárias em `@layer components`:
+## SEO / semântica
+- `<section>` com `id="contato"` e `aria-labelledby`. `<h2>` único da seção.
+- Link do header "Contato" aponta para `#contato` (já há scroll suave configurado).
 
-- `.glass-cta-dark` — vidro escuro para CTA principal (texto branco):
-  - `background: var(--glass-dark-bg)` + `backdrop-filter: blur(14px) saturate(140%)`
-  - `border: 1px solid var(--glass-dark-border)`
-  - `box-shadow: var(--glass-dark-shadow), inset 0 1px 0 rgba(255,255,255,0.18)`
-  - hover: `bg-strong` + `translateY(-1px) scale(1.02)`
-  - inclui fallback `@supports not (backdrop-filter)` com fundo opaco `var(--primary)`.
-
-- `.glass-cta-accent` — variação para botões com identidade verde (WhatsApp/accent):
-  - mesma base, mas usando um `--glass-accent-bg: rgba(<accent rgb>, 0.78)` e texto `--accent-foreground`.
-
-Ambas mantêm `text-shadow: 0 1px 2px rgba(0,0,0,0.25)` para legibilidade AA.
-
-## 2. Refinar `.glass-icon` para o "Voltar ao topo"
-
-Hoje o botão usa `.glass-icon` (vidro claro translúcido) sobre o fundo branco da página → fica quase invisível.
-
-Criar `.glass-icon-dark` (mesma base do `.glass-cta-dark`, formato circular):
-- `background: var(--glass-dark-bg)`, blur, borda translúcida, sombra mais forte
-- ícone em branco com `drop-shadow`
-- hover `scale(1.08)`
-
-Aplicar `.glass-icon-dark` no `BackToTop.tsx` no lugar de `.glass-icon`.
-Manter o WhatsApp flutuante como está (já é verde sólido + glass).
-
-## 3. Aplicar nos botões listados
-
-| Botão | Arquivo | Classe atual | Nova classe |
-|---|---|---|---|
-| "Quero agendar uma avaliação" | `src/components/sections/About.tsx` | `bg-primary text-primary-foreground` | `glass-cta-dark` |
-| "Tire suas dúvidas no WhatsApp" | `src/components/sections/Procedures.tsx` | `bg-primary text-primary-foreground` | `glass-cta-dark` |
-| "Falar no WhatsApp" (footer) | `src/components/Footer.tsx` | `bg-accent text-accent-foreground` | `glass-cta-accent` |
-| "Ligar agora" (Location) | `src/components/sections/Location.tsx` | `border bg-background text-primary` | `glass-cta-dark` |
-| "WhatsApp" (Location) | `src/components/sections/Location.tsx` | `bg-accent text-accent-foreground` | `glass-cta-accent` |
-| "Voltar ao topo" | `src/components/BackToTop.tsx` | `glass-icon` | `glass-icon-dark` |
-
-Nenhuma alteração em layout, tipografia, ícones internos, espaçamentos ou cópias — apenas troca de classes de aparência.
-
-## 4. Contraste e acessibilidade
-
-- Texto continua branco (`text-primary-foreground` / `text-accent-foreground`) sobre vidro escuro → contraste AA garantido mesmo em fundos claros.
-- `text-shadow` sutil reforça leitura.
-- Mantém `min-h-[44px]`/`min-h-[56px]` e foco visível existentes.
-- Fallback opaco para navegadores sem `backdrop-filter`.
-
-## Arquivos editados
-
-- `src/styles.css` (tokens + 3 novas classes: `glass-cta-dark`, `glass-cta-accent`, `glass-icon-dark`)
-- `src/components/sections/About.tsx`
-- `src/components/sections/Procedures.tsx`
-- `src/components/sections/Location.tsx`
-- `src/components/Footer.tsx`
-- `src/components/BackToTop.tsx`
+## Fora de escopo
+- Backend, banco de dados, envio real de e-mail, captcha, integração com provedor — usuário escolheu "Apenas mailto:".
