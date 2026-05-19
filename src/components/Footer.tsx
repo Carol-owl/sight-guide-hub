@@ -7,8 +7,12 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3 text-primary-foreground">
-              <img src={ASSETS.logoIbv} alt="Instituto Bela Vista" className="h-10 w-auto" />
+            <div className="flex items-center gap-3">
+              <img
+                src={ASSETS.logoIbv}
+                alt="Instituto Bela Vista Oftalmologia"
+                className="h-14 w-auto rounded-lg bg-primary-foreground/95 p-2"
+              />
             </div>
             <img src={ASSETS.logoDaniel} alt="Dr. Daniel Campos" className="mt-4 h-10 w-auto text-primary-foreground" />
             <p className="mt-4 text-sm text-primary-foreground/80">

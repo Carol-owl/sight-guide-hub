@@ -34,10 +34,10 @@ export function Header() {
           >
             <img
               src={ASSETS.logoIbv}
-              alt="Instituto Bela Vista"
-              className={`h-10 w-auto transition-[filter] duration-300 ${onHero ? "brightness-0 invert" : ""}`}
-              width={120}
-              height={36}
+              alt="Instituto Bela Vista Oftalmologia"
+              className={`h-12 w-auto transition-[filter] duration-300 ${onHero ? "drop-shadow-[0_1px_6px_rgba(0,0,0,0.35)]" : ""}`}
+              width={160}
+              height={54}
             />
           </a>
           <span aria-hidden className={`hidden h-8 w-px md:block ${onHero ? "bg-primary-foreground/30" : "bg-border"}`} />
