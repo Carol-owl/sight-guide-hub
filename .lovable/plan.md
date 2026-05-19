@@ -1,20 +1,17 @@
 ## Mudanças
 
-### 1. Remover os 4 ícones de Áreas de atuação
+Substituir a foto atual de Catarata em **Áreas de atuação** por uma imagem realista de um olho humano com catarata visível (cristalino opacificado, pupila esbranquiçada/acinzentada).
 
-**`src/components/sections/Specialties.tsx`**
-- Remover imports `Eye, Scan, Brain, Focus` de `lucide-react` (manter `Plus, Minus`).
-- Remover o `iconMap` e a linha `const Icon = iconMap[s.icon]`.
-- Remover o `<div>` do badge no canto superior esquerdo da imagem (linhas 28-30) — o `<Icon />` e seu contêiner saem completamente. A foto da especialidade fica limpa, sem overlay.
+### Como vou gerar
+- Usar `imagegen--generate_image` (modelo `standard` para fidelidade fotográfica) com prompt focado em close fotográfico de olho humano com catarata madura — opacidade esbranquiçada na pupila, íris e cílios nítidos, iluminação clínica natural.
+- Aspect ratio compatível com `aspect-[16/10]` do card: 1280×800.
+- Salvar sobrescrevendo `src/assets/specialty-catarata.jpg`.
 
-Não vou mexer no campo `icon` em `src/data/site.ts` nem no tipo `Specialty.icon` — fica como dado não utilizado, sem custo. (Se preferir limpar também, me avise.)
-
-### 2. Ampliar a foto do Glaucoma (nervo óptico mais aparente)
-
-**`src/assets/specialty-glaucoma.jpg`**
-- Reenquadrar a imagem atual com zoom no nervo óptico (disco óptico central) usando `imagegen--edit_image` — mesmo arquivo, recorte mais fechado mantendo qualidade. Aspect ratio `16:9` para casar com o `aspect-[16/10]` do card.
-
-Nenhuma outra mudança de layout ou código necessária — o `<img className="object-cover">` já se ajusta ao novo enquadramento.
+### Código
+Nenhuma mudança de código — o import e o uso em `src/data/site.ts` continuam apontando para o mesmo arquivo.
 
 ## Fora de escopo
-- Outras fotos de especialidades, layout dos cards, textos.
+- Outras especialidades, layout do card, textos.
+
+## Observação
+É imagem **ilustrativa gerada por IA**, não foto clínica real de paciente. Se preferir uma foto real (banco de imagens médico) ou enviar uma própria, me avise.
