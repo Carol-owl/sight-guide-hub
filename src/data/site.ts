@@ -29,6 +29,7 @@ export const ASSETS = {
 export const CONTACT = {
   whatsappNumber: "559833015060",
   whatsappText: "Olá, Dr. Daniel! Gostaria de agendar uma consulta.",
+  email: "contato@drdanielcamposoftalmo.com",
   institutoUrl: "https://institutobelavista.com/",
   instagramUrl: "https://www.instagram.com/ibv.institutobelavista/",
 };
@@ -185,4 +186,5 @@ export const NAV_LINKS = [
   { href: "#procedimentos", label: "Procedimentos" },
   { href: "#depoimentos", label: "Depoimentos" },
   { href: "#localizacao", label: "Localização" },
+  { href: "#contato", label: "Contato" },
 ];
