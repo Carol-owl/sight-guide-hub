@@ -1,17 +1,9 @@
 import { useState } from "react";
-import { Eye, Scan, Brain, Focus, Plus, Minus } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { SPECIALTIES, type Specialty } from "@/data/site";
-
-const iconMap = {
-  eye: Eye,
-  scan: Scan,
-  brain: Brain,
-  focus: Focus,
-} as const;
 
 function Card({ s }: { s: Specialty }) {
   const [open, setOpen] = useState(false);
-  const Icon = iconMap[s.icon];
   const panelId = `spec-${s.id}`;
 
   return (
@@ -25,9 +17,6 @@ function Card({ s }: { s: Specialty }) {
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute left-4 top-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/95 text-primary-foreground shadow-[var(--shadow-soft)]">
-          <Icon className="h-6 w-6" aria-hidden />
-        </div>
       </div>
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-xl font-semibold text-primary">{s.title}</h3>
