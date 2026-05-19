@@ -1,17 +1,19 @@
-## Mudanças
+## Mudança
 
-Substituir a foto atual de Catarata em **Áreas de atuação** por uma imagem realista de um olho humano com catarata visível (cristalino opacificado, pupila esbranquiçada/acinzentada).
+Regenerar `src/assets/specialty-catarata.jpg` com um olho que mostre **catarata madura de verdade** — a pupila inteira tomada por uma opacidade branco-leitosa/acinzentada (leucocoria), não preta.
 
-### Como vou gerar
-- Usar `imagegen--generate_image` (modelo `standard` para fidelidade fotográfica) com prompt focado em close fotográfico de olho humano com catarata madura — opacidade esbranquiçada na pupila, íris e cílios nítidos, iluminação clínica natural.
-- Aspect ratio compatível com `aspect-[16/10]` do card: 1280×800.
-- Salvar sobrescrevendo `src/assets/specialty-catarata.jpg`.
+### Prompt revisado (pontos-chave)
+- Close fotográfico de olho humano idoso.
+- **Pupila completamente esbranquiçada / branco-acinzentada opaca** ocupando todo o centro da íris (cristalino opacificado visível através da pupila).
+- Sem reflexo pupilar preto — a pupila NÃO deve aparecer escura.
+- Íris ao redor visível, esclera levemente avermelhada/envelhecida, pálpebra com rugas finas.
+- Iluminação clínica suave, fotorrealista, estilo oftalmológico.
+- Sem texto, sem instrumentos.
 
-### Código
-Nenhuma mudança de código — o import e o uso em `src/data/site.ts` continuam apontando para o mesmo arquivo.
+Vou usar `imagegen--generate_image` com `model: standard`, 1280×800, sobrescrevendo o arquivo. Nenhuma alteração de código.
+
+## QA
+Após gerar, inspeciono visualmente se a pupila está de fato turva (branca/cinza). Se ainda vier saudável, regenero reforçando "white pupil, leukocoria, dense nuclear cataract, no dark pupil".
 
 ## Fora de escopo
-- Outras especialidades, layout do card, textos.
-
-## Observação
-É imagem **ilustrativa gerada por IA**, não foto clínica real de paciente. Se preferir uma foto real (banco de imagens médico) ou enviar uma própria, me avise.
+Outros assets ou layout.
