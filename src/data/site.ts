@@ -158,6 +158,10 @@ export const TESTIMONIALS: Testimonial[] = [
   { id: "t2", patientName: "Ricardo M.", city: "São Luís", state: "MA", rating: 5, text: "Fiz a cirurgia refrativa e voltei a dirigir sem óculos no dia seguinte. Equipe acolhedora, tecnologia impecável." },
   { id: "t3", patientName: "Antônia P.", city: "São José de Ribamar", state: "MA", rating: 5, text: "Convivo com glaucoma há anos. Pela primeira vez senti que um médico realmente me escutou e ajustou o tratamento ao meu dia a dia." },
   { id: "t4", patientName: "João Carlos L.", city: "Paço do Lumiar", state: "MA", rating: 5, text: "Atendimento humano e técnico ao mesmo tempo. Indico de olhos fechados — ou melhor, bem abertos!" },
+  { id: "t5", patientName: "Francisca R.", city: "Matinha", state: "MA", rating: 5, text: "Viajei até São Luís para uma segunda opinião sobre catarata e me surpreendi com a atenção do Dr. Daniel. Cirurgia tranquila e voltei para casa enxergando muito melhor." },
+  { id: "t6", patientName: "Raimundo N.", city: "Olinda Nova do Maranhão", state: "MA", rating: 5, text: "Trato glaucoma há mais de cinco anos. O Dr. Daniel ajustou minha medicação com calma e hoje a pressão dos olhos está totalmente controlada." },
+  { id: "t7", patientName: "Luciana A.", city: "Olinda Nova do Maranhão", state: "MA", rating: 5, text: "Minha mãe fez a cirurgia de catarata e a recuperação foi rapidíssima. Atendimento atencioso desde a recepção até o pós-operatório." },
+  { id: "t8", patientName: "José Ribamar C.", city: "São João Batista", state: "MA", rating: 5, text: "Sempre tive medo de operar os olhos, mas o Dr. Daniel explicou cada etapa com paciência. Hoje leio sem óculos e agradeço todos os dias." },
 ];
 
 export interface Location {
