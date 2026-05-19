@@ -1,17 +1,9 @@
 import { useState } from "react";
-import { Eye, Scan, Brain, Focus, Plus, Minus } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { SPECIALTIES, type Specialty } from "@/data/site";
-
-const iconMap = {
-  eye: Eye,
-  scan: Scan,
-  brain: Brain,
-  focus: Focus,
-} as const;
 
 function Card({ s }: { s: Specialty }) {
   const [open, setOpen] = useState(false);
-  const Icon = iconMap[s.icon];
   const panelId = `spec-${s.id}`;
 
   return (
