@@ -1,20 +1,23 @@
 ## Mudança
+No setor "Procedimentos" (`src/components/sections/Procedures.tsx`), substituir todos os ícones `Stethoscope` (Lucide) pelo ícone anexado (olho com mão por baixo, estilo line-art azul).
 
-Substituir `src/assets/specialty-refrativa.jpg` por uma foto realista de cirurgia refrativa a laser, com foco na interação laser-córnea.
+## Passos
 
-### Prompt (pontos-chave)
-- Close fotográfico macro de um olho humano aberto durante cirurgia refrativa (LASIK/PRK).
-- Feixe de laser excimer fino e preciso incidindo sobre a córnea, com leve reflexo/halo do laser visível na superfície.
-- Espéculo palpebral discreto mantendo o olho aberto (sem causar desconforto visual exagerado).
-- Iluminação azulada/esverdeada típica de microscópio cirúrgico oftalmológico, foco nítido na córnea.
-- Estética de centro cirúrgico: limpa, tecnológica, profissional, alta definição.
-- Fotografia real, não render 3D nem ilustração.
-- Sem texto, sem logos, sem sangue, sem aspecto perturbador.
+1. **Tratar o ícone anexado**
+   - Copiar `user-uploads://eyecare.icon-2.jpg` e gerar uma versão limpa em PNG transparente usando `imagegen--edit_image`.
+   - Prompt: limpar fundo, deixar linhas nítidas e bem definidas, manter o traço azul original, adicionar leve brilho/glow azul sutil ao redor para dar efeito premium, fundo sólido branco (depois removido para transparência).
+   - Salvar em `src/assets/icon-eyecare.png` (transparent_background: true).
 
-Modelo: `imagegen--generate_image` standard, 1280×800, sobrescrevendo o arquivo. Nenhuma alteração de código (import em `src/data/site.ts` segue igual).
+2. **Atualizar `Procedures.tsx`**
+   - Importar o novo asset: `import iconEyecare from "@/assets/icon-eyecare.png"`.
+   - Remover o import de `Stethoscope` do `lucide-react` (manter `ArrowRight`).
+   - Substituir o `<Stethoscope />` dentro da lista por `<img src={iconEyecare} alt="" aria-hidden className="h-7 w-7 object-contain" />`.
+   - Manter o container redondo `bg-accent/15` (o glow do ícone aparece sobre o fundo claro). Se necessário, ajustar levemente o padding do círculo para acomodar o ícone.
 
 ## QA
-Inspeciono visualmente: precisa parecer foto clínica real, ter o laser visível sobre a córnea, e não parecer CGI. Se vier artificial/3D, regenero reforçando "real photograph, ophthalmic surgical microscope photography, not 3D render".
+- Verificar visualmente os 6 procedimentos: o ícone deve aparecer nítido, com brilho sutil, alinhado verticalmente com o texto, em todos os itens.
+- Nenhum `Stethoscope` remanescente no arquivo.
 
 ## Fora de escopo
-Outros assets, layout, textos.
+- Outras seções/ícones do site (Specialties, Hero, Footer, etc.) — só o setor Procedimentos.
+- Alterações de layout, cores ou textos da seção.
