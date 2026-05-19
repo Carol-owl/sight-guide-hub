@@ -43,11 +43,11 @@ export function Header() {
           <span aria-hidden className={`hidden h-8 w-px md:block ${onHero ? "bg-primary-foreground/30" : "bg-border"}`} />
           <a href="#top" className="hidden items-center md:flex" aria-label="Dr. Daniel Campos — início">
             <img
-              src={ASSETS.logoDaniel}
+              src={onHero ? ASSETS.logoDanielWhite : ASSETS.logoDanielColor}
               alt="Dr. Daniel Campos — Oftalmologia"
-              className={`h-9 w-auto transition-[filter] duration-300 ${onHero ? "brightness-0 invert" : ""}`}
+              className={`h-10 w-auto transition-[filter] duration-300 ${onHero ? "drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]" : ""}`}
               width={160}
-              height={36}
+              height={40}
             />
           </a>
         </div>
