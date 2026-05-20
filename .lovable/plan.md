@@ -1,27 +1,22 @@
-## Objetivo
-Substituir duas ilustrações clinicamente imprecisas na seção "Áreas de atuação" (Specialties): Catarata e Cirurgia Refrativa.
+## Diagnóstico
+Você está certo: na imagem atual (`src/assets/specialty-refrativa.jpg`), os "arames" metálicos cruzando o olho não correspondem a um blefarostato real (que é uma peça única, em forma de mola, apoiada nas bordas palpebrais superior e inferior). Eles parecem mais pinças soltas, o que destoa do padrão clínico.
 
-## Problemas atuais
-- `src/assets/specialty-catarata.jpg` — mostra uma lente intraocular isolada (não comunica catarata de forma clara) e/ou pode ser confundida com leucoma corneano.
-- `src/assets/specialty-refrativa.jpg` — não representa o ato cirúrgico refrativo (sem blefarostato, sem aplicação de laser).
+## Opção recomendada: regerar a imagem com referência anatômica correta
+Manter a cena de cirurgia refrativa (com laser) é mais informativo para a seção do que apenas um olho aberto sem instrumentos. A solução mais limpa é gerar uma nova imagem com prompt mais específico sobre o blefarostato.
 
-## Geração de novas imagens (imagegen, premium)
+Novo prompt (resumo): close-up cirúrgico de LASIK, olho mantido aberto por um **Barraquer wire eyelid speculum** (peça única em forma de mola de aço inoxidável, com dois arcos que se apoiam respectivamente sobre a pálpebra superior e inferior, conectados lateralmente por uma alça curva nos cantos — sem hastes cruzando o globo ocular), mira de laser excimer (pontos vermelhos) sobre a córnea, campo estéril azul, microscopia cirúrgica. Sem óculos, sem outras pinças, sem mãos.
 
-### 1. Nova `src/assets/specialty-catarata.jpg`
-Prompt clínico: close-up macro fotorrealista de um olho humano com catarata madura — pupila exibindo opacidade esbranquiçada/amarelada **atrás da íris, no cristalino** (não na córnea). Córnea transparente e brilhante preservada, reflexo de luz nítido na superfície corneana para evidenciar que a opacidade está em plano mais profundo. Iluminação tipo lâmpada de fenda, qualidade de atlas oftalmológico. Sem óculos, sem instrumentos. Proporção 16:10.
+Se a primeira tentativa não convencer, tento mais uma variação antes de cair na Opção B.
 
-### 2. Nova `src/assets/specialty-refrativa.jpg`
-Prompt clínico: fotografia cirúrgica fotorrealista de procedimento de LASIK em andamento — olho humano mantido aberto por **blefarostato (afastador palpebral) metálico visível**, feixe/spot de **laser excimer** sendo aplicado sobre a córnea (leve halo de luz vermelha de mira + reflexo do laser), campo cirúrgico estéril azul ao redor, foco no olho. Sem óculos, sem armações, sem mãos do cirurgião em primeiro plano. Estética de fotografia médica acadêmica. Proporção 16:10.
+## Opção B (fallback): editar a imagem atual removendo os instrumentos
+Usar `imagegen--edit_image` para apagar os arames metálicos, preservando o olho com a mira do laser e o campo cirúrgico. Risco: a cena fica "olho aberto sozinho no campo", o que enfraquece a leitura "cirurgia em andamento", mas é tecnicamente neutro (não mostra instrumento errado).
 
-Ambas geradas em qualidade `standard` (fidelidade fotográfica importa, mas não há texto), 1600x1024, sobrescrevendo os arquivos atuais para não exigir mudanças em `src/data/site.ts`.
+## Opção C (fallback final): substituir por foto de banco público
+Buscar no Unsplash/Wikimedia uma foto real de LASIK com blefarostato e licença permissiva, baixar e salvar como `src/assets/specialty-refrativa.jpg`. Só recorrer a isso se A e B falharem, pois fotos reais com licença adequada para esse procedimento são raras.
 
-## QA
-Após gerar, abrir as duas imagens e validar:
-- Catarata: opacidade claramente atrás da íris (no cristalino), córnea limpa.
-- Refrativa: blefarostato visível + indicação de laser, sem óculos.
-Se algum critério falhar, regenerar com prompt ajustado antes de entregar.
+## Pergunta
+Quer que eu siga direto pela **Opção A (regerar)**, ou prefere a **Opção B (apagar os instrumentos da imagem atual)**?
 
 ## Fora de escopo
-- Alterar textos, `alt`, descrições ou tokens de design.
-- Mudar outras imagens de especialidades (Glaucoma, Neuro).
-- Mudar layout do componente `Specialties`.
+- Mexer em outras imagens, textos ou componentes.
+- Mudar a imagem da catarata (que ficou correta).
