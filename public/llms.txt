@@ -1,0 +1,32 @@
+# Dr. Daniel Campos — Oftalmologista
+
+> Site do Dr. Daniel Costa Campos, oftalmologista especialista em catarata, glaucoma, cirurgia refrativa e neuro-oftalmologia. Atua em São Luís — MA, no Instituto Bela Vista de Oftalmologia, oferecendo atendimento humanizado e tecnologia de ponta.
+
+## Pages
+
+- [/](/): Página inicial com apresentação do Dr. Daniel Costa Campos, suas especialidades (glaucoma, catarata, neuro-oftalmologia e cirurgia refrativa), procedimentos realizados, depoimentos de pacientes, mídia, localização do Instituto Bela Vista e formas de contato.
+
+## About
+
+Dr. Daniel Costa Campos é médico oftalmologista formado pela Universidade Federal do Maranhão (UFMA), com residência médica no Hospital Universitário (HU-UFMA) e título de Especialista em Oftalmologia pelo Conselho Brasileiro de Oftalmologia (CBO). É pós-graduado em Glaucoma pela Unifesp e mestre pelo Programa de Pós-Graduação em Saúde do Adulto da UFMA. Atua como preceptor da residência médica em Oftalmologia do HU-UFMA desde 2015.
+
+É sócio-proprietário do Instituto Bela Vista de Oftalmologia, localizado em São Luís — MA. Sua missão é cuidar da visão com tempo, ciência e empatia.
+
+## Services
+
+- **Glaucoma**: Diagnóstico precoce, acompanhamento da pressão intraocular, tonometria, campimetria, OCT de nervo óptico, trabeculectomia e implante de drenagem.
+- **Catarata**: Cirurgia de facoemulsificação com implante de lentes intraoculares premium (monofocais, tóricas e multifocais).
+- **Neuro-oftalmologia**: Investigação de alterações visuais relacionadas ao nervo óptico e sistema nervoso central.
+- **Cirurgia Refrativa**: Correção de miopia, hipermetropia e astigmatismo com LASIK, PRK e implante de lente fácica (ICL).
+- **Pterígio**: Exérese de pterígio.
+
+## Contact
+
+- **Institute**: Instituto Bela Vista de Oftalmologia
+- **Address**: Rua Auxiliar 2, Nº 31, Cohajap, São Luís — MA, 65072-790
+- **Phone**: (98) 3301-5060
+- **Hours**: Segunda a sexta: 08h às 18h • Sábado: 08h às 12h
+- **WhatsApp**: +55 98 3301-5060
+- **Email**: contato@drdanielcamposoftalmo.com
+- **Instagram**: @ibv.institutobelavista
+- **Website**: https://institutobelavista.com/
