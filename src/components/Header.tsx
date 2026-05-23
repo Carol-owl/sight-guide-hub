@@ -24,33 +24,14 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 lg:px-8">
-        <div className={`flex items-center gap-3 ${onHero ? "text-primary-foreground" : "text-primary"}`}>
+        <div className={`flex items-center ${onHero ? "text-primary-foreground" : "text-primary"}`}>
           <a href="#top" className="flex items-center" aria-label="Dr. Daniel Campos — início">
             <img
               src={onHero ? ASSETS.logoDanielWhite : ASSETS.logoDanielColor}
               alt="Dr. Daniel Campos — Oftalmologia"
-              className={`h-14 w-auto transition-[filter] duration-300 ${onHero ? "drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]" : ""}`}
-              width={220}
-              height={56}
-            />
-          </a>
-          <span aria-hidden className={`hidden h-8 w-px md:block ${onHero ? "bg-primary-foreground/30" : "bg-border"}`} />
-          <a
-            href={CONTACT.institutoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instituto Bela Vista — site externo"
-            className="hidden items-center gap-2 md:flex"
-          >
-            <span className={`text-[10px] font-medium uppercase tracking-widest ${onHero ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
-              no
-            </span>
-            <img
-              src={onHero ? ASSETS.logoIbvWhite : ASSETS.logoIbv}
-              alt="Instituto Bela Vista Oftalmologia"
-              className={`h-8 w-auto opacity-90 transition-[filter] duration-300 ${onHero ? "drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]" : ""}`}
-              width={110}
-              height={36}
+              className={`h-16 w-auto transition-[filter] duration-300 md:h-20 ${onHero ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]" : ""}`}
+              width={260}
+              height={80}
             />
           </a>
         </div>
