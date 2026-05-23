@@ -1,22 +1,27 @@
-## Diagnóstico
-A imagem enviada (com marca d'água "260nw-2250937349" do Shutterstock) foi copiada para `src/assets/specialty-refrativa.jpg`, mas deve servir apenas como referência visual — não pode ser usada por questão de direitos autorais.
+## Objetivo
+Dar maior destaque e contraste à logomarca "Dr. Daniel Campos" no rodapé do site, criando um efeito de relevo com vidro fosco ao fundo e brilho intenso na logo branca sobre o fundo azul escuro.
 
-## Ação
-Gerar uma nova imagem original inspirada na composição da referência, salvando em `src/assets/specialty-refrativa.jpg` (sobrescrevendo a versão com marca d'água).
+## Alterações no `src/components/Footer.tsx`
 
-## Composição-alvo (baseada na referência)
-- Close-up macro lateral de um olho humano (íris âmbar/castanha bem detalhada), levemente cortado à esquerda.
-- Pálpebras e cílios naturais, sem instrumentos metálicos, sem blefarostato, sem mãos.
-- Feixe de laser vermelho-alaranjado vindo da diagonal superior direita, convergindo num ponto brilhante sobre a córnea, com sutil halo/flare.
-- Fundo preto profundo à direita, criando contraste cinematográfico.
-- Discretos anéis/marcadores de mira holográficos sobre a íris (efeito de tracking ocular), sutis.
-- Aspecto fotográfico realista, nitidez clínica, iluminação dramática.
-- Aspect ratio 16:9 para casar com o card.
+1. **Container glass ao redor da logo de Daniel Campos**
+   - Envolver a tag `<img>` da logo (`ASSETS.logoDanielWhite`) em um `<div>` com efeito de vidro fosco.
+   - Usar combinação de classes Tailwind para criar o glass sem adicionar novas classes CSS:
+     - Fundo semi-transparente claro (`bg-white/15` ou `bg-primary-foreground/15`)
+     - `backdrop-blur-xl` para fosco intenso
+     - `border border-white/25` para delinear o vidro
+     - `rounded-2xl` para suavizar
+     - `p-4` (ou maior) para criar respiro e relevo
+     - `shadow-lg` ou `shadow-xl` com cor para elevação
+     - `shadow-[0_0_30px_rgba(...)]` para glow sutil no container
 
-## Passos
-1. `imagegen--generate_image` (model `standard`) com o prompt acima → `src/assets/specialty-refrativa.jpg`.
-2. Inspecionar o resultado (zoom). Se a anatomia ou o laser ficarem incorretos, repetir uma vez com prompt ajustado.
+2. **Brilho intenso na própria logo**
+   - Aumentar o `drop-shadow` existente da logo para algo mais intenso e dourado/accent.
+   - Exemplo: `drop-shadow-[0_0_20px_color-mix(in_oklab,var(--color-gold)_60%,transparent)]` ou com `var(--color-accent)`.
+   - Manter o tamanho atual (`h-16 md:h-20`) ou aumentar levemente se o container comportar.
 
-## Fora de escopo
-- Outras imagens, textos ou componentes.
-- Crédito/atribuição (imagem será original, gerada).
+3. **Reorganização visual opcional (se necessário)**
+   - Manter a logo do IBV como está (já tem fundo branco próprio).
+   - Garantir que a nova caixa de vidro da logo Daniel fique bem posicionada abaixo da IBV com espaçamento confortável.
+
+## Resultado esperado
+A logomarca "Dr. Daniel Campos" ganhará um "card" de vidro fosco (frosted glass) ao redor, com bordas sutis, blur no fundo e um glow/brilho mais forte na imagem branca, destacando-se elegantemente sobre o azul escuro do rodapé.
