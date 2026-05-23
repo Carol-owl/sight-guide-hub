@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import { ASSETS, CONTACT, NAV_LINKS, waLink } from "@/data/site";
+import { ASSETS, NAV_LINKS, waLink } from "@/data/site";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
