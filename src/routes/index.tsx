@@ -51,7 +51,6 @@ export const Route = createFileRoute("/")({
             streetAddress: "Rua Auxiliar 2, Cohajap",
             addressLocality: "São Luís",
             addressRegion: "MA",
-            postalCode: "65071-ірі",
             addressCountry: "BR",
           },
           openingHoursSpecification: [
