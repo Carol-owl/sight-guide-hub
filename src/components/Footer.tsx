@@ -16,13 +16,21 @@ export function Footer() {
                 className="h-20 w-auto rounded-lg bg-primary-foreground/95 p-3 md:h-24"
               />
             </div>
-            <img
-              src={ASSETS.logoDanielWhite}
-              alt="Dr. Daniel Campos"
-              loading="eager"
-              decoding="sync"
-              className="mt-4 h-16 w-auto drop-shadow-[0_0_14px_color-mix(in_oklab,var(--color-accent)_45%,transparent)] md:h-20"
-            />
+            <div
+              className="relative mt-6 inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/10 px-6 py-5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] ring-1 ring-inset ring-white/10"
+            >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(120%_120%_at_50%_0%,color-mix(in_oklab,var(--color-accent)_22%,transparent),transparent_60%)]"
+              />
+              <img
+                src={ASSETS.logoDanielWhite}
+                alt="Dr. Daniel Campos"
+                loading="eager"
+                decoding="sync"
+                className="relative h-20 w-auto drop-shadow-[0_0_22px_color-mix(in_oklab,var(--color-gold)_70%,transparent)] md:h-24"
+              />
+            </div>
 
             <p className="mt-4 text-sm text-primary-foreground/80">
               {DOCTOR.crm} • {DOCTOR.rqe}
