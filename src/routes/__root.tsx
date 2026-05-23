@@ -75,11 +75,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Dr. Daniel Campos — Oftalmologista em São Luís" },
       { name: "description", content: "Oftalmologista especialista em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia no Instituto Bela Vista, São Luís — MA." },
       { name: "author", content: "Instituto Bela Vista de Oftalmologia" },
-      { property: "og:title", content: "Dr. Daniel Campos — Oftalmologista em São Luís" },
-      { property: "og:description", content: "Oftalmologista especialista em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia no Instituto Bela Vista, São Luís — MA." },
+      { property: "og:site_name", content: "Instituto Bela Vista de Oftalmologia" },
+      { property: "og:title", content: "Dr. Daniel Campos — Oftalmologista" },
+      { property: "og:description", content: "Especialista em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia em São Luís — MA." },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@ibv_instituto" },
     ],
     links: [
       {
