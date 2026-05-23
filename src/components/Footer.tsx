@@ -1,4 +1,4 @@
-import { Instagram, Youtube, Linkedin, MessageCircle, ExternalLink } from "lucide-react";
+import { Instagram, MessageCircle, ExternalLink } from "lucide-react";
 import { ASSETS, CONTACT, DOCTOR, NAV_LINKS, waLink } from "@/data/site";
 
 export function Footer() {
@@ -77,22 +77,6 @@ export function Footer() {
                   className="inline-flex min-h-[44px] items-center gap-2 text-primary-foreground/90 hover:text-accent"
                 >
                   <Instagram className="h-4 w-4" aria-hidden /> Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="inline-flex min-h-[44px] items-center gap-2 text-primary-foreground/90 hover:text-accent"
-                >
-                  <Youtube className="h-4 w-4" aria-hidden /> YouTube
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="inline-flex min-h-[44px] items-center gap-2 text-primary-foreground/90 hover:text-accent"
-                >
-                  <Linkedin className="h-4 w-4" aria-hidden /> LinkedIn
                 </a>
               </li>
               <li>
