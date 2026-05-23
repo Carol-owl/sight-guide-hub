@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Dr. Daniel Campos — Oftalmologista em São Luís" },
+      { name: "description", content: "Oftalmologista especialista em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia no Instituto Bela Vista, São Luís — MA." },
+      { name: "author", content: "Instituto Bela Vista de Oftalmologia" },
+      { property: "og:title", content: "Dr. Daniel Campos — Oftalmologista em São Luís" },
+      { property: "og:description", content: "Oftalmologista especialista em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia no Instituto Bela Vista, São Luís — MA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@ibv_instituto" },
     ],
     links: [
       {
