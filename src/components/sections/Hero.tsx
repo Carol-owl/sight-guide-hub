@@ -15,16 +15,16 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:px-8 lg:pb-24 lg:pt-40">
         <div className="fade-in-up">
           <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-primary-foreground/90">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Instituto Bela Vista
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" /> {DOCTOR.name} · {DOCTOR.crm}
           </div>
 
           <h1 className="mt-5 text-balance font-display !text-primary-foreground">
-            Sua visão merece o melhor cuidado.
+            Dr. Daniel Campos — sua visão merece o melhor cuidado.
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-primary-foreground/85">
-            <strong className="font-semibold text-primary-foreground">{DOCTOR.name}</strong> — oftalmologista
-            especializado em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia. Tecnologia
-            de ponta e atendimento humanizado.
+            Oftalmologista especializado em catarata, cirurgia refrativa, glaucoma e
+            neuro-oftalmologia. Tecnologia de ponta e atendimento humanizado, em São Luís —
+            sócio-proprietário do <strong className="font-semibold text-primary-foreground">Instituto Bela Vista de Oftalmologia</strong>.
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -53,6 +53,7 @@ export function Hero() {
             </span>
           </div>
         </div>
+
 
         <div className="relative">
           <div
