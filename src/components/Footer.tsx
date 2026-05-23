@@ -7,13 +7,19 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3 drop-shadow-[0_0_18px_color-mix(in_oklab,var(--color-accent)_55%,transparent)]">
+            <div
+              className="relative inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/10 px-6 py-5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] ring-1 ring-inset ring-white/10"
+            >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(120%_120%_at_50%_0%,color-mix(in_oklab,var(--color-accent)_22%,transparent),transparent_60%)]"
+              />
               <img
                 src={ASSETS.logoIbv}
                 alt="Instituto Bela Vista Oftalmologia"
                 loading="eager"
                 decoding="sync"
-                className="h-20 w-auto rounded-lg bg-primary-foreground/95 p-3 md:h-24"
+                className="relative h-20 w-auto drop-shadow-[0_0_22px_color-mix(in_oklab,var(--color-accent)_55%,transparent)] md:h-24"
               />
             </div>
             <div
@@ -31,6 +37,7 @@ export function Footer() {
                 className="relative h-20 w-auto drop-shadow-[0_0_22px_color-mix(in_oklab,var(--color-gold)_70%,transparent)] md:h-24"
               />
             </div>
+
 
             <p className="mt-4 text-sm text-primary-foreground/80">
               {DOCTOR.crm} • {DOCTOR.rqe}
