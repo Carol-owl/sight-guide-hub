@@ -8,22 +8,24 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-4">
           <div>
             <div
-              className="relative inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/10 px-6 py-5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] ring-1 ring-inset ring-white/10"
+              className="relative flex h-28 w-60 items-center justify-center rounded-2xl border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] ring-1 ring-inset ring-white/10 md:h-32 md:w-64"
             >
               <span
                 aria-hidden
                 className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(120%_120%_at_50%_0%,color-mix(in_oklab,var(--color-accent)_22%,transparent),transparent_60%)]"
               />
-              <img
-                src={ASSETS.logoIbv}
-                alt="Instituto Bela Vista Oftalmologia"
-                loading="eager"
-                decoding="sync"
-                className="relative h-20 w-auto drop-shadow-[0_0_22px_color-mix(in_oklab,var(--color-accent)_55%,transparent)] md:h-24"
-              />
+              <div className="relative flex h-full w-full items-center justify-center rounded-xl bg-white px-3 py-2 shadow-inner">
+                <img
+                  src={ASSETS.logoIbv}
+                  alt="Instituto Bela Vista Oftalmologia"
+                  loading="eager"
+                  decoding="sync"
+                  className="max-h-full max-w-full w-auto object-contain"
+                />
+              </div>
             </div>
             <div
-              className="relative mt-6 inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/10 px-6 py-5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] ring-1 ring-inset ring-white/10"
+              className="relative mt-6 flex h-28 w-60 items-center justify-center rounded-2xl border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] ring-1 ring-inset ring-white/10 md:h-32 md:w-64"
             >
               <span
                 aria-hidden
@@ -34,9 +36,10 @@ export function Footer() {
                 alt="Dr. Daniel Campos"
                 loading="eager"
                 decoding="sync"
-                className="relative h-20 w-auto drop-shadow-[0_0_22px_color-mix(in_oklab,var(--color-gold)_70%,transparent)] md:h-24"
+                className="relative max-h-full max-w-full w-auto object-contain drop-shadow-[0_0_22px_color-mix(in_oklab,var(--color-gold)_70%,transparent)]"
               />
             </div>
+
 
 
             <p className="mt-4 text-sm text-primary-foreground/80">

@@ -1,13 +1,19 @@
-## Objetivo
-Fazer com que as duas logos do rodapé (IBV e Dr. Daniel Campos) fiquem visualmente do mesmo tamanho.
-
-## Problema atual
-A logo IBV usa um fundo branco quadrado (`bg-primary-foreground/95 p-3 rounded-lg`) enquanto a logo Daniel está dentro de um card de vidro fosco (`bg-white/10 backdrop-blur-xl px-6 py-5 rounded-2xl`). Ambas têm `h-20 md:h-24` na imagem, mas o tratamento do container é diferente, criando desigualdade visual — conforme visível no screenshot do rodapé.
+## Problema
+1. O card do IBV ficou mais largo que o do Dr. Daniel — as proporções das imagens são parecidas (2.21:1 vs 2.01:1), mas como cada card só usa `px-6 py-5` e dimensiona pela imagem, a diferença aparece.
+2. A logo IBV é em verde sálvia sobre fundo claro. Hoje ela está sobre o vidro fosco escuro, o que descaracteriza as cores originais (parecem apagadas/dessaturadas).
 
 ## Solução
-1. **Logo IBV**: remover `bg-primary-foreground/95 p-3 rounded-lg` da `<img>` e envolvê-la em um card de vidro fosco idêntico ao da logo Daniel (mesmas classes de container: `rounded-2xl border border-white/25 bg-white/10 px-6 py-5 backdrop-blur-xl shadow-[...] ring-1 ring-inset ring-white/10`).
-2. **Logo Daniel**: manter o card de vidro fosco existente, apenas verificar que as dimensões da imagem continuam `h-20 w-auto md:h-24`.
-3. Ajustar espaçamento (`mt-6` entre os cards) para manter o layout confortável.
+
+### 1. Cards do mesmo tamanho
+Dar aos dois containers uma dimensão fixa idêntica (`h-28 w-60` por exemplo) com `inline-flex items-center justify-center`. As `<img>` viram `max-h-full max-w-full w-auto object-contain` para se ajustarem internamente — assim, qualquer logo cabe dentro do mesmo "molde".
+
+### 2. Cores precisas da logo IBV
+A logo IBV precisa de fundo claro para preservar o verde original. Dentro do card de vidro fosco, adicionar um "tile" interno branco/creme claro (`bg-white rounded-xl px-4 py-3`) que envolve a `<img>` do IBV. O card externo continua sendo o mesmo vidro fosco do Daniel — então a "moldura" externa permanece idêntica, mas o interior do IBV é claro para honrar as cores da marca.
+
+A logo do Dr. Daniel continua direto sobre o vidro (já é branca, então funciona).
+
+## Arquivo
+- `src/components/Footer.tsx` — ajustar os dois blocos de logo (linhas ~9-33).
 
 ## Resultado esperado
-Ambas as logos terão o mesmo container, mesmo padding, mesmo estilo visual e mesmo tamanho percebido no rodapé escuro.
+Dois cards de vidro fosco visualmente do mesmo tamanho lado a lado (empilhados na coluna), IBV com fundo branco interno mostrando o verde correto, Daniel com logo branca direto no vidro com brilho dourado.
