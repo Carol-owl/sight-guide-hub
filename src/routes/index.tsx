@@ -13,9 +13,9 @@ import { Media } from "@/components/sections/Media";
 import { Location } from "@/components/sections/Location";
 import { Contact } from "@/components/sections/Contact";
 
-const title = "Dr. Daniel Costa Campos — Oftalmologista em São Luís | Instituto Bela Vista";
+const title = "Dr. Daniel Campos — Oftalmologista em São Luís";
 const description =
-  "Oftalmologista especialista em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia. Atendimento humanizado e tecnologia de ponta no Instituto Bela Vista (São Luís — MA).";
+  "Oftalmologista especialista em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia no Instituto Bela Vista, São Luís — MA.";
 
 export const Route = createFileRoute("/")({
   component: Index,
