@@ -14,6 +14,7 @@ import { Location } from "@/components/sections/Location";
 import { Contact } from "@/components/sections/Contact";
 
 const title = "Dr. Daniel Campos — Oftalmologista em São Luís";
+const ogTitle = "Dr. Daniel Campos — Oftalmologista";
 const description =
   "Oftalmologista especialista em catarata, cirurgia refrativa, glaucoma e neuro-oftalmologia no Instituto Bela Vista, São Luís — MA.";
 
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title },
       { name: "description", content: description },
-      { property: "og:title", content: title },
+      { property: "og:title", content: ogTitle },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -45,6 +46,28 @@ export const Route = createFileRoute("/")({
           },
           areaServed: "São Luís, MA, Brasil",
           telephone: "+55-98-3301-5060",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Rua Auxiliar 2, Cohajap",
+            addressLocality: "São Luís",
+            addressRegion: "MA",
+            postalCode: "65071-ірі",
+            addressCountry: "BR",
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              opens: "08:00",
+              closes: "18:00",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: "Saturday",
+              opens: "08:00",
+              closes: "12:00",
+            },
+          ],
         }),
       },
     ],
