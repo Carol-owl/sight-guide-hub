@@ -24,7 +24,7 @@ export function Location() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Localização</p>
-          <h2 className="mt-3">Onde encontrar o Dr. Daniel</h2>
+          <h2 className="mt-3">Onde encontrar o <span className="text-accent-script">Dr. Daniel</span></h2>
         </div>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
