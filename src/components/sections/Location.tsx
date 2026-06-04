@@ -23,8 +23,8 @@ export function Location() {
     <section id="localizacao" className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Onde encontrar o Dr. Daniel</p>
-          <h2 className="mt-3">Localização</h2>
+          <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Localização</p>
+          <h2 className="mt-3">Onde encontrar o Dr. Daniel</h2>
         </div>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
