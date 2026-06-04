@@ -81,7 +81,7 @@ export function Contact() {
             Fale com a equipe do Dr. Daniel
           </p>
           <h2 id="contato-titulo" className="mt-3">
-            Fale com a equipe do Dr. Daniel.
+            Contato
           </h2>
           <p className="mt-4 text-muted-foreground">
             Envie sua dúvida ou solicitação. Respondemos em até 1 dia útil.
