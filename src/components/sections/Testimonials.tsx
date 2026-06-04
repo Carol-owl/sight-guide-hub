@@ -17,7 +17,7 @@ export function Testimonials() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Depoimentos</p>
-            <h2 className="mt-3">A <span className="text-accent-script">confiança</span> de quem voltou a enxergar bem.</h2>
+            <h2 className="mt-3">A confiança de quem voltou a enxergar bem.</h2>
           </div>
           <div className="flex gap-2">
             <button

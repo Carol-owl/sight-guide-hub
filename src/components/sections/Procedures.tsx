@@ -8,7 +8,7 @@ export function Procedures() {
       <div className="mx-auto max-w-6xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Procedimentos</p>
-          <h2 className="mt-3"><span className="text-accent-script">Cirurgias</span> e tratamentos realizados.</h2>
+          <h2 className="mt-3">Cirurgias e tratamentos realizados.</h2>
         </div>
 
         <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">

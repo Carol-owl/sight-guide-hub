@@ -62,7 +62,7 @@ export function Specialties() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Áreas de atuação</p>
-          <h2 className="mt-3"><span className="text-accent-script">Cuidado</span> especializado em quatro grandes frentes.</h2>
+          <h2 className="mt-3">Cuidado especializado em quatro grandes frentes.</h2>
           <p className="mt-4 text-muted-foreground">
             Cada especialidade combina diagnóstico preciso, tecnologia moderna e conduta personalizada.
           </p>

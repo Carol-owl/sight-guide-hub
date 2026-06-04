@@ -6,7 +6,7 @@ export function Media() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Bastidores</p>
-          <h2 className="mt-3">Por dentro do <span className="text-accent-script">consultório</span>.</h2>
+          <h2 className="mt-3">Por dentro do consultório.</h2>
           <p className="mt-4 text-muted-foreground">
             Conheça o ambiente, a equipe e a rotina cirúrgica do Dr. Daniel no Instituto Bela Vista.
           </p>

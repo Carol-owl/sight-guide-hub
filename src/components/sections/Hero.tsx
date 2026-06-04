@@ -19,7 +19,7 @@ export function Hero() {
           </div>
 
           <h1 className="mt-5 text-balance font-display !text-primary-foreground">
-            Dr. Daniel Campos — sua <span className="text-accent-script">visão</span> merece o melhor <span className="text-accent-script">cuidado</span>.
+            Dr. Daniel Campos — sua visão merece o melhor cuidado.
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-primary-foreground/85">
             Oftalmologista especializado em catarata, cirurgia refrativa, glaucoma e
