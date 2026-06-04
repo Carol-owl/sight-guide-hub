@@ -23,7 +23,7 @@ export function About() {
         </div>
         <div className="order-1 lg:order-2">
           <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Sobre o Dr. Daniel</p>
-          <h2 className="mt-3">Ciência, técnica e escuta atenta caminham juntas.</h2>
+          <h2 className="mt-3">Ciência, técnica e <span className="text-accent-script">escuta</span> atenta caminham juntas.</h2>
 
           <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
             {DOCTOR.bioParagraphs.map((p, i) => (
