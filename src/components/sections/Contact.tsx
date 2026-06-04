@@ -78,10 +78,10 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-secondary">
-            Fale com a equipe do Dr. Daniel
+            Contato
           </p>
           <h2 id="contato-titulo" className="mt-3">
-            Contato
+            Fale com a equipe do Dr. Daniel
           </h2>
           <p className="mt-4 text-muted-foreground">
             Envie sua dúvida ou solicitação. Respondemos em até 1 dia útil.
