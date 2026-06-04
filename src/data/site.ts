@@ -199,6 +199,6 @@ export const NAV_LINKS = [
   { href: "#especialidades", label: "Áreas" },
   { href: "#procedimentos", label: "Procedimentos" },
   { href: "#depoimentos", label: "Depoimentos" },
-  { href: "#localizacao", label: "Localização" },
-  { href: "#contato", label: "Contato" },
+  { href: "#localizacao", label: "Onde encontrar o Dr. Daniel" },
+  { href: "#contato", label: "Fale com a equipe do Dr. Daniel" },
 ];
