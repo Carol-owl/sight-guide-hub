@@ -9,9 +9,9 @@
   //   - .output/public/            → assets estáticos servidos pelo binding ASSETS
   //
   // Com isto, `npx wrangler deploy` na raiz funciona sem flags extras.
-  "main": "dist/server/index.mjs",
+  "main": ".output/server/index.mjs",
   "assets": {
-    "directory": "dist/client",
+    "directory": ".output/public",
     "binding": "ASSETS"
   },
   "no_bundle": true,
