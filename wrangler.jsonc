@@ -4,14 +4,11 @@
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   // O build (vite build) usa o preset Nitro `cloudflare-module` e gera:
-  //   - dist/server/index.mjs  → bundle final do Worker (já com os módulos
-  //                              virtuais do TanStack Start resolvidos)
-  //   - dist/client/           → assets estáticos servidos pelo binding ASSETS
+  //   - .output/server/index.mjs  → bundle final do Worker (já com os módulos
+  //                                   virtuais do TanStack Start resolvidos)
+  //   - .output/public/            → assets estáticos servidos pelo binding ASSETS
   //
   // Com isto, `npx wrangler deploy` na raiz funciona sem flags extras.
-  // (O Nitro também gera dist/server/wrangler.json equivalente; este arquivo
-  //  na raiz é apenas para que o comando puro `wrangler deploy` encontre a
-  //  configuração sem precisar de `-c dist/server/wrangler.json`.)
   "main": "dist/server/index.mjs",
   "assets": {
     "directory": "dist/client",
