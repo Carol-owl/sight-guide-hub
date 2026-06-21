@@ -3,5 +3,15 @@
   "name": "sight-guide-hub",
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "src/server.ts"
+  // The TanStack Start + @cloudflare/vite-plugin build emits the final Worker
+  // bundle (with virtual modules like `tanstack-start-manifest:v` already
+  // resolved) to dist/sight-guide-hub/. `wrangler deploy` MUST point there.
+  // Running `wrangler deploy` against src/server.ts directly fails with
+  // `Could not resolve "tanstack-start-manifest:v"`.
+  //
+  // Local dev (vite dev) ignores `main` — it uses the in-memory plugin output.
+  "main": "dist/sight-guide-hub/index.js",
+  "assets": {
+    "directory": "dist/sight-guide-hub/assets"
+  }
 }

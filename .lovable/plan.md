@@ -1,31 +1,66 @@
-# Nova tipografia — elegante e editorial
+## Diagnóstico
 
-## Direção visual
-Inspirado nas referências enviadas: títulos em **serif** com presença editorial (estilo "Finally A Card That Powers *Your Growth*" e "founders like *you*"), e subtítulos/corpo em **sans-serif** discreta e moderna.
+O nome no `wrangler.jsonc` **já está correto** (`sight-guide-hub`) — não é problema de nome.
 
-## Par de fontes proposto
-- **Títulos (h1–h6):** `Instrument Serif` — serif contemporânea, elegante, com itálico expressivo (perfeito para destacar palavras como nas referências).
-- **Subtítulos / corpo / UI:** `Inter` (já em uso) — mantém legibilidade e modernidade.
+A causa real está no início do log:
 
-Alternativas equivalentes caso queira variar: `Fraunces`, `DM Serif Display` ou `Cormorant Garamond` para títulos.
+```
+✘ [ERROR] Could not resolve "tanstack-start-manifest:v"
+✘ [ERROR] Could not resolve "tanstack-start-injected-head-scripts:v"
+```
 
-## O que muda
-1. **`index.html`** — adicionar `<link>` do Google Fonts para `Instrument Serif` (regular + italic).
-2. **`src/styles.css`**
-   - Atualizar `--font-display` para `"Instrument Serif", Georgia, serif`.
-   - Manter `--font-sans` como `Inter`.
-   - Ajustar `letter-spacing` dos `h1–h6` (serifs pedem tracking mais neutro, ~`-0.01em` em vez de `-0.02em`).
-   - Pequeno ajuste de `font-weight` (serifs ficam melhores em 600 do que 700).
-3. Os títulos das seções (Hero, Sobre, Especialidades, Procedimentos, Localização, Contato, etc.) automaticamente herdam a nova fonte — sem mexer em cada componente.
-4. Os pequenos rótulos uppercase ("Localização", "Contato", etc.) continuam em `Inter` — contraste perfeito com o serif do título.
+Esses são **módulos virtuais** gerados pelo plugin do TanStack Start durante `vite build`. O Cloudflare Workers Builds está executando `wrangler deploy` direto contra `src/server.ts` (o `main` do `wrangler.jsonc`), pulando o build do Vite — então o wrangler/esbuild encontra os imports virtuais sem ninguém pra resolvê-los e quebra.
 
-## O que NÃO muda
-- Cores, layout, espaçamentos, componentes — apenas tipografia.
-- Fonte do corpo e botões permanece `Inter`.
+O projeto usa `@cloudflare/vite-plugin`, que gera o bundle final do Worker em `dist/sight-guide-hub/` junto com um `wrangler.json` próprio (com aliases e entry corretos). O deploy precisa apontar pra esse output, não pra `src/`.
 
-## Resultado esperado
-Títulos como **"Onde encontrar o Dr. Daniel"** ganham peso editorial e sofisticação clínica, mantendo legibilidade. Visual mais próximo de um consultório premium do que de uma landing genérica.
+## Correções
 
----
+### 1. Configurar Cloudflare Workers Builds (no dashboard da Cloudflare)
 
-Se quiser, posso depois aplicar o truque das referências: destacar **uma palavra do título em itálico** (ex: "Onde encontrar o *Dr. Daniel*") — me avise se quer incluir isso já neste passo.
+No painel do Worker `sight-guide-hub` → **Settings → Builds**:
+
+- **Build command:** `bun install && bun run build`
+- **Deploy command:** `bunx wrangler deploy`
+- **Root directory:** (vazio, ou `/`)
+
+Sem o `bun run build` antes, o `wrangler deploy` nunca vai conseguir resolver os módulos virtuais do TanStack Start.
+
+### 2. Ajustar `wrangler.jsonc` para apontar ao build do Vite
+
+O `@cloudflare/vite-plugin` emite `dist/sight-guide-hub/wrangler.json` completo. A forma mais limpa é deixar o `wrangler deploy` usar esse config gerado, trocando o deploy command pra:
+
+```
+bunx wrangler deploy -c dist/sight-guide-hub/wrangler.json
+```
+
+Ou, alternativamente, manter `wrangler.jsonc` na raiz mas mudar `main` para o entry buildado (`dist/sight-guide-hub/index.js`) e adicionar:
+
+```jsonc
+{
+  "name": "sight-guide-hub",
+  "main": "dist/sight-guide-hub/index.js",
+  "compatibility_date": "2025-09-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "directory": "dist/sight-guide-hub/assets" }
+}
+```
+
+A primeira opção (usar o `-c` apontando pro wrangler.json gerado) é mais robusta porque o plugin já preenche assets, bindings e aliases corretamente — não precisa duplicar manualmente.
+
+### 3. (Opcional) Confirmar versão do bun/node no build
+
+Cloudflare Workers Builds usa Node 22 por padrão. Se o build reclamar de bun ausente, trocar pra `npm ci && npm run build` e `npx wrangler deploy -c dist/sight-guide-hub/wrangler.json`.
+
+## O que NÃO precisa mudar
+
+- Nome do Worker — já bate.
+- `src/server.ts`, `vite.config.ts`, código da app — nada do erro vem daí.
+- Publish nativo do Lovable continua funcionando independente disso.
+
+## Como validar
+
+Após ajustar Build/Deploy commands no dashboard da Cloudflare, disparar um novo deploy (push no GitHub). O log deve mostrar `vite build` rodando antes do `wrangler deploy`, sem os erros `Could not resolve "tanstack-start-manifest:v"`.
+
+## Observação importante
+
+Essa mudança é **na configuração do Cloudflare Workers Builds (dashboard)**, não em arquivos do repo — eu não consigo aplicar isso por você. Posso, se quiser, ajustar o `wrangler.jsonc` na raiz pra apontar pro build do Vite (opção 2 acima) como fallback, mas o passo principal (mudar build/deploy commands) precisa ser feito por você no painel Cloudflare.
