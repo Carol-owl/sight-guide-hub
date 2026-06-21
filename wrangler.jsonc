@@ -3,15 +3,25 @@
   "name": "sight-guide-hub",
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
-  // The TanStack Start + @cloudflare/vite-plugin build emits the final Worker
-  // bundle (with virtual modules like `tanstack-start-manifest:v` already
-  // resolved) to dist/sight-guide-hub/. `wrangler deploy` MUST point there.
-  // Running `wrangler deploy` against src/server.ts directly fails with
-  // `Could not resolve "tanstack-start-manifest:v"`.
+  // O build (vite build) usa o preset Nitro `cloudflare-module` e gera:
+  //   - dist/server/index.mjs  → bundle final do Worker (já com os módulos
+  //                              virtuais do TanStack Start resolvidos)
+  //   - dist/client/           → assets estáticos servidos pelo binding ASSETS
   //
-  // Local dev (vite dev) ignores `main` — it uses the in-memory plugin output.
-  "main": "dist/sight-guide-hub/index.js",
+  // Com isto, `npx wrangler deploy` na raiz funciona sem flags extras.
+  // (O Nitro também gera dist/server/wrangler.json equivalente; este arquivo
+  //  na raiz é apenas para que o comando puro `wrangler deploy` encontre a
+  //  configuração sem precisar de `-c dist/server/wrangler.json`.)
+  "main": "dist/server/index.mjs",
   "assets": {
-    "directory": "dist/sight-guide-hub/assets"
-  }
+    "directory": "dist/client",
+    "binding": "ASSETS"
+  },
+  "no_bundle": true,
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": ["**/*.mjs", "**/*.js"]
+    }
+  ]
 }
