@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { ASSETS, NAV_LINKS, waLink } from "@/data/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,6 +58,7 @@ export function Header() {
             href={waLink()}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick("cabecalho_desktop")}
             className={`glass-cta hidden min-h-[44px] items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold sm:inline-flex ${onHero ? "text-primary-foreground" : "text-primary"}`}
           >
             <MessageCircle className="h-4 w-4" aria-hidden />
@@ -95,7 +97,10 @@ export function Header() {
               href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                trackWhatsAppClick("cabecalho_mobile");
+              }}
               className="glass-cta mt-2 flex min-h-[56px] items-center justify-center gap-2 rounded-full px-5 font-semibold text-primary"
             >
               <MessageCircle className="h-5 w-5" aria-hidden />

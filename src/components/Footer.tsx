@@ -1,5 +1,6 @@
 import { Instagram, MessageCircle, ExternalLink } from "lucide-react";
 import { ASSETS, CONTACT, DOCTOR, NAV_LINKS, waLink } from "@/data/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export function Footer() {
   return (
@@ -102,6 +103,7 @@ export function Footer() {
               href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("rodape")}
               className="glass-cta-accent mt-5 inline-flex min-h-[56px] items-center gap-2 rounded-full px-6 font-semibold"
             >
               <MessageCircle className="h-5 w-5" aria-hidden />
@@ -113,6 +115,14 @@ export function Footer() {
         <div className="mt-12 border-t border-primary-foreground/15 pt-6 text-xs text-primary-foreground/65">
           <p>
             © {new Date().getFullYear()} {DOCTOR.name}. Este site tem caráter informativo e não substitui a consulta médica.
+          </p>
+          <p className="mt-2">
+            <a
+              href="/politica-de-privacidade"
+              className="underline-offset-4 hover:text-accent hover:underline"
+            >
+              Política de Privacidade
+            </a>
           </p>
         </div>
       </div>

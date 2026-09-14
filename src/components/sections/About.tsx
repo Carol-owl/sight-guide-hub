@@ -1,5 +1,6 @@
 import { ArrowRight, Quote } from "lucide-react";
 import { DOCTOR, waLink } from "@/data/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export function About() {
   return (
@@ -35,6 +36,7 @@ export function About() {
             href={waLink()}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick("sobre")}
             className="glass-cta-dark mt-7 inline-flex min-h-[56px] items-center gap-2 rounded-full px-6 font-semibold"
           >
             Quero agendar uma avaliação

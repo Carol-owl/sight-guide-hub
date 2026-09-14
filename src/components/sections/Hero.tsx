@@ -1,5 +1,6 @@
 import { ArrowDown, MessageCircle, ShieldCheck } from "lucide-react";
 import { DOCTOR, waLink } from "@/data/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export function Hero() {
   return (
@@ -32,6 +33,7 @@ export function Hero() {
               href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("hero")}
               className="glass-cta inline-flex min-h-[56px] items-center gap-2 rounded-full px-7 text-base font-semibold text-primary-foreground"
             >
               <MessageCircle className="h-5 w-5" aria-hidden />

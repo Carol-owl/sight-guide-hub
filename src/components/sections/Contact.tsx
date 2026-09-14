@@ -5,6 +5,7 @@ import { Mail, Phone, Clock, Send } from "lucide-react";
 import { toast } from "sonner";
 
 import { CONTACT, LOCATIONS } from "@/data/site";
+import { trackContactFormSubmit, trackPhoneClick } from "@/lib/analytics";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -63,6 +64,7 @@ export function Contact() {
     )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = href;
+    trackContactFormSubmit();
     toast.success("Abrindo seu app de e-mail…", {
       description: "Revise a mensagem e confirme o envio.",
     });
@@ -112,7 +114,8 @@ export function Contact() {
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-5 w-5 flex-none text-accent" aria-hidden />
                 <a
-                  href={`tel:+${loc.phone.replace(/\D/g, "")}`}
+                  href={`tel:+55${loc.phone.replace(/\D/g, "")}`}
+                  onClick={() => trackPhoneClick("contato")}
                   className="font-medium text-primary hover:text-secondary"
                 >
                   {loc.phone}

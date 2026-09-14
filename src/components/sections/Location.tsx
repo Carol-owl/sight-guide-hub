@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 import { LOCATIONS, waLink } from "@/data/site";
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/analytics";
 
 export function Location() {
   const ref = useRef<HTMLDivElement>(null);
@@ -56,7 +57,7 @@ export function Location() {
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-5 w-5 flex-none text-accent" aria-hidden />
                 <a
-                  href={`tel:+${loc.phone.replace(/\D/g, "")}`}
+                  href={`tel:+55${loc.phone.replace(/\D/g, "")}`}
                   className="font-medium text-primary hover:text-secondary"
                 >
                   {loc.phone}
@@ -70,7 +71,8 @@ export function Location() {
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
-                href={`tel:+${loc.phone.replace(/\D/g, "")}`}
+                href={`tel:+55${loc.phone.replace(/\D/g, "")}`}
+                onClick={() => trackPhoneClick("localizacao")}
                 className="glass-cta-dark inline-flex min-h-[56px] flex-1 items-center justify-center gap-2 rounded-full px-5 font-semibold"
               >
                 <Phone className="h-4 w-4" aria-hidden />
@@ -80,6 +82,7 @@ export function Location() {
                 href={waLink()}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("localizacao")}
                 className="glass-cta-accent inline-flex min-h-[56px] flex-1 items-center justify-center gap-2 rounded-full px-5 font-semibold"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden />

@@ -14,7 +14,7 @@ import { Location } from "@/components/sections/Location";
 import { Contact } from "@/components/sections/Contact";
 import danielHero from "@/assets/daniel-hero.jpg";
 
-const SITE_URL = "https://sight-guide-hub.lovable.app";
+const SITE_URL = "https://www.drdanielcamposoftalmo.com";
 const OG_IMAGE = `${SITE_URL}${danielHero}`;
 
 const title =

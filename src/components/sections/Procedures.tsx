@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { PROCEDURES, waLink } from "@/data/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import iconEyecare from "@/assets/icon-eyecare.png";
 
 export function Procedures() {
@@ -35,6 +36,7 @@ export function Procedures() {
             href={waLink("Olá, Dr. Daniel! Gostaria de saber mais sobre os procedimentos.")}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick("procedimentos")}
             className="glass-cta-dark inline-flex min-h-[56px] items-center gap-2 rounded-full px-7 font-semibold"
           >
             Tire suas dúvidas no WhatsApp
